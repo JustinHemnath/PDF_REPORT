@@ -1,0 +1,41 @@
+{% import 'graph_components/individual_graph_item.html' as IndividualGraphItem %}
+{% import 'extra_components/year_box.html' as YearBox %}
+
+{% macro render(HIERARCHY_DATA={}, should_display_year=True, METADATA={}, OR_MATCHING_YEAR="") -%}
+
+<div style="width: 100%;">
+    {% if should_display_year %}
+        <div class="background_dmk_red" style="height: 4px; width: 100%"></div>
+    {% endif %}
+
+    <div style="display: flex; width: 100%">
+        {% for year_iteration in HIERARCHY_DATA["year_wise_data"] %} 
+            {% set trend_value = year_iteration['trend'] if year_iteration['trend'] is not none else '' %} 
+            {% set TREND = '' if trend_value=='' else 'L' not in trend_value %}
+            {% set SUBTREND = HIERARCHY_DATA["sub_trend"][loop.index0] %}
+            
+            <div style="position: relative; width: 100%;">
+                {% if should_display_year %}
+                    {{ YearBox.render(YEAR=year_iteration["year"], SUBTREND=SUBTREND, OR_MATCHING_YEAR=OR_MATCHING_YEAR) }}
+                {% endif %}
+
+                <div style="display: flex; z-index: 10; width: 100%;">
+                    {{
+                        IndividualGraphItem.render(FIG=year_iteration["fig"],TITLE=HIERARCHY_DATA["hierarchy_item_value"],
+                        COLOR_CLASS=METADATA["COLORS"][loop.index0],IS_FIG_TYPE=True,
+                        NON_FIG_TYPE_DATA=none,
+                        VILLAGE_PANCHAYAT=HIERARCHY_DATA["ward_vp"],
+                        VOTER_TURNOUT=year_iteration["turnout"],
+                        MARGIN_PERCENTAGE=year_iteration["margin_percentage"],
+                        METADATA=METADATA,WON=TREND, YEAR_DATA=year_iteration, SUBTREND=SUBTREND) 
+                    }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{%- endmacro %}
+
+
+

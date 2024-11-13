@@ -1,0 +1,31 @@
+{% macro render(WON, YEAR=none, IS_DARK_COLOR_SCHEME=False) -%}
+{% set thumbs_up_icon_path = "assets/qualitative_thumb_up_icon.svg" if IS_DARK_COLOR_SCHEME else "assets/qualitative_thumb_up_icon_stroke_white.svg" %}
+{% set thumbs_down_icon_path = "assets/qualitative_thumb_down_icon.svg" if IS_DARK_COLOR_SCHEME else "assets/qualitative_thumb_down_icon_stroke_white.svg" %}
+<div
+    style="
+        width: 0.65rem;
+        height: 0.65rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        align-items: center;
+        justify-content: space-between;
+    "
+>
+    {% if WON %}
+        <img
+            style="height: 100%; width: 100%"
+            src={{ thumbs_up_icon_path }}
+        />
+    {% else %}
+        <img
+            style="height: 100%; width: 100%"
+            src={{ thumbs_down_icon_path }}
+        />
+    {% endif %}
+
+    {% if YEAR %}
+        <p style="font-size: 6px; margin: 0px; font-weight: 800; letter-spacing: 0.5; " + {{ 'color: black; ' if IS_DARK_COLOR_SCHEME else 'color: white;' }}>{{ YEAR }}</p>
+    {% endif %}
+</div>
+{%- endmacro %}

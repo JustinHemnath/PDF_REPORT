@@ -1,0 +1,83 @@
+{% import 'extra_components/header_template.html' as Header %} 
+{% import 'extra_components/label_value_component_template.html' as LabelValueComponent %} 
+{% import 'graph_components/Individual_graph_2_year_container.html' as IndividualGraph2YearContainer %} 
+{% import 'graph_components/Individual_graph_4_year_container.html' as IndividualGraph4YearContainer %}
+{% import 'extra_components/subtrend_icon.html' as SubTrendIcon %} 
+{% import 'extra_components/trend_icon.html' as TrendIcon %} 
+{% from 'extra_components/trend_container.html' import TrendContainer %} 
+{% import 'threshold_template.html' as Threshold %} 
+
+{% macro render(graph_data_pages=none, METADATA=none, total_pages=0, flag="0", diff="and", OR_MATCHING_YEAR="", CHAPTER_NUM=none, chapter_header=none, TOTAL_BOOTHS_PER_CHAPTER=none) -%}
+            {% for graph_page_obj in graph_data_pages %}
+
+                {% set SECOND_HIERARCY_ITEM_PRESENT = graph_page_obj["page_data"]|length() > 1 %}
+                {% set hierarchy_item_one = graph_page_obj["page_data"][0] or none %}
+                {% set hierarchy_item_two = graph_page_obj["page_data"][1] or none %}
+
+                <div class="comparative_analysis_pdf_graph_page page-break" style="position: relative;">
+                    {{ Header.render(PAGE_NO=graph_page_obj["page_number"], METADATA=METADATA, GRAPH_TITLES=hierarchy_item_one["header"],
+                        TOTAL_PAGES=total_pages, HIERARCHY_ITEM_DATA=hierarchy_item_one, CHAPTER_NUM=CHAPTER_NUM, OR_MATCHING_YEAR=OR_MATCHING_YEAR, chapter_header=chapter_header, TOTAL_BOOTHS_PER_CHAPTER=TOTAL_BOOTHS_PER_CHAPTER) 
+                    }} 
+
+                    {{ TrendContainer(METADATA=METADATA, hierarchy_item_one=hierarchy_item_one, hierarchy_item_two=hierarchy_item_two) }}
+
+                    <div style="display: flex; gap: 1rem;">
+                        {{
+                            LabelValueComponent.render(TITLE=hierarchy_item_one["label_value_title"], GENDER_DATA=hierarchy_item_one["gender_stats"],
+                            AGE_DATA=hierarchy_item_one["age_stats"],
+                            HIERARCHY_ITEM_VALUE=hierarchy_item_one["hierarchy_item_value"],
+                            METADATA=METADATA) 
+                        }} 
+                        
+                        {% if SECOND_HIERARCY_ITEM_PRESENT %}
+                        {{
+                            LabelValueComponent.render(TITLE=hierarchy_item_two["label_value_title"], GENDER_DATA=hierarchy_item_two["gender_stats"],
+                            AGE_DATA=hierarchy_item_two["age_stats"],
+                            HIERARCHY_ITEM_VALUE=hierarchy_item_two["hierarchy_item_value"],
+                            METADATA=METADATA) 
+                        }}
+                        {% endif %}
+                    </div>
+
+                    <div class="ca_graph_container">
+                        {% if METADATA["YEARS_LIST"]|length() == 2 %}
+                            <div>
+                                {{
+                                    IndividualGraph2YearContainer.render(HIERARCHY_DATA=hierarchy_item_one,
+                                    should_display_year=True, METADATA=METADATA, flag=flag, diff=diff, OR_MATCHING_YEAR=OR_MATCHING_YEAR) 
+                                }}
+                                
+                                {% if SECOND_HIERARCY_ITEM_PRESENT %}
+                                    {{ 
+                                        IndividualGraph2YearContainer.render(HIERARCHY_DATA=hierarchy_item_two, 
+                                        should_display_year=False, METADATA=METADATA, flag=flag, diff=diff, OR_MATCHING_YEAR=OR_MATCHING_YEAR) 
+                                    }} 
+                                {% endif %}
+                            </div>
+
+                        {% elif METADATA["YEARS_LIST"]|length() in [3, 4] %}
+                            <div>
+                                {{ 
+                                    IndividualGraph4YearContainer.render(HIERARCHY_DATA=hierarchy_item_one,
+                                    should_display_year=True, METADATA=METADATA, OR_MATCHING_YEAR=OR_MATCHING_YEAR) 
+                                }} 
+                                
+                                {% if SECOND_HIERARCY_ITEM_PRESENT %}
+                                    {{
+                                        IndividualGraph4YearContainer.render(HIERARCHY_DATA=hierarchy_item_two, 
+                                        should_display_year=False, METADATA=METADATA, OR_MATCHING_YEAR=OR_MATCHING_YEAR) 
+                                    }} 
+                                {% endif %}
+                            </div>
+
+                        {% else %}
+                        <div>TEST</div>
+                        {% endif %}
+                    </div>
+                    <div style="position: absolute; bottom: -1.1rem; left: 1rem; width: 96.5%;">
+                        {{Threshold.render(METADATA=METADATA)}}
+                    </div>
+                </div>
+            {% endfor %}
+{%- endmacro %}
+

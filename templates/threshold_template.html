@@ -1,0 +1,34 @@
+{% import 'extra_components/trend_icon.html' as TrendIcon %} 
+{% import 'extra_components/subtrend_icon.html' as SubTrendIcon %} 
+
+{% macro render(METADATA=none) %}
+<div
+    style="background-color: #ffffff; display: flex; align-items: center; justify-content: space-around;
+    font-size: 0.55rem; width: 100%; padding: 0.1rem 0;"
+>
+    <div style="display: flex; align-items: center;">
+        {{ SubTrendIcon.render(SUBTREND="S") }}
+        <span style="margin-left: 3px;">: >5% {{ METADATA["T"]["vote_difference"] }}</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+        {{ SubTrendIcon.render(SUBTREND="F") }}
+        <span style="margin-left: 3px;">: 0% - 5% {{ METADATA["T"]["vote_difference"] }}</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+        {{ SubTrendIcon.render(SUBTREND="B") }}
+        <span style="margin-left: 3px;">: -5% - 0% {{ METADATA["T"]["vote_difference"] }}</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+        {{ SubTrendIcon.render(SUBTREND="D") }}
+        <span style="margin-left: 3px;">: > -5% {{ METADATA["T"]["vote_difference"] }}</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+         {{ TrendIcon.render(WON=True, YEAR=None, IS_DARK_COLOR_SCHEME=True) }}
+        <span style="font-weight:700; margin-left: 1rem;"> {{METADATA['T']['win']}}</span>
+    </div>
+    <div style="display: flex; align-items: center;">
+         {{ TrendIcon.render(WON=False, YEAR=None, IS_DARK_COLOR_SCHEME=True) }}
+         <span style="font-weight:700;margin-left: 1rem;"> {{METADATA['T']['lose']}}</span>
+    </div>
+</div>
+{% endmacro %}

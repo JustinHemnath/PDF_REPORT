@@ -1,0 +1,60 @@
+{% import 'extra_components/header_template.html' as Header %}
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--It is necessary to use the UTF-8 encoding with plotly graphics to get e.g. negative signs to render correctly -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" type="text/css" href="assets/css1.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css2.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css3.css" />    
+        <link rel="stylesheet" type="text/css" href="assets/css4.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+
+        {# plotly js min file #}
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.33.0/plotly.min.js"
+            integrity="sha512-kG/veDBO4Av/ffjTdtEvtsUkVgAisp5MWbymAUc5vJlyZb3WSZ+gEC8cNlAACBzaHQQLTUKqRaNIKeIc44yD6w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+
+    <body>
+        <div id="comparative_analysis_pdf_body">
+            <div class="comparative_analysis_pdf_index_page page-break">
+                {{ Header.render(PAGE_NO="1", METADATA=METADATA, GRAPH_TITLES=none, TOTAL_PAGES=total_pages, HIERARCHY_ITEM_DATA=none) }}
+
+                <div class="ca_index_table">
+                    <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; border: 1px solid black; height: 100%;">
+                        <div style="padding-top: 1rem; font-weight: 800; font-size: 1.2rem; text-decoration: underline; width: 100%; display: grid; place-content: center;">
+                                {{ METADATA["T"]["summar_main"] }}
+                        </div> 
+    
+                        <div style="font-size: 0.8rem; padding: 1rem 2rem 0; text-align: justify; text-justify: inter-word; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;" class="increased_line_height">
+                            <p>சட்டமன்ற / நாடாளுமன்றத் தொகுதிகளில், வாக்குச்சாவடி வாரியாக பல்வேறு தேர்தல்களில் பதிவான வாக்குகளின் தரவுகளைப் பகுப்பாய்வு ஒப்பீடு செய்து, வெற்றித் தோல்விக்கான காரணங்களை அறிந்து அதற்கேற்ப தேர்தல் பணிகளை மேற்கொள்ள உதவிடும் வகையில் பகுப்பாய்வு ஒப்பீட்டு அறிக்கை அமைந்துள்ளது.  </p>
+
+                            <p>எந்தெந்த தொகுதிகள் / உள்ளாட்சி அமைப்புகள் / வாக்குச்சாவடிகளில் திமுக பலவீனமாக உள்ளது, வெற்றியைப் பாதிக்கும் காரணிகள் என்ன, எந்தப் பகுதிகளில் தேர்தல் வெற்றிக்கு அதிக கவனம் செலுத்த வேண்டும் உள்ளிட்ட தகவல்கள் பகுப்பாய்வு ஒப்பீட்டு அறிக்கை கழக நிர்வாகிகளுக்கும், பாக முகவர்களுக்கும் வழங்குகிறது.  </p>
+
+                            <p>தொகுதிக்கு உட்பட்ட அனைத்து தெருக்களின் விவரங்களும் வாக்குச்சாவடி வாரியாக பிரிக்கப்பட்டுள்ளதால் கழக பிரதிநிதிகள் வாக்காளர்களைத் தொடர்புகொள்வது எளிமையாக்கப்பட்டுள்ளது.  </p>
+
+                            <p>வாக்காளர்களின் வயது பற்றிய தகவல்கள், பாலினம், முதல்முறை வாக்காளர்களின் விவரங்கள் உள்ளிட்ட  தரவுகள் அனைத்தும் வாக்குச்சாவடி நிலைகளின் பகுப்பாய்வு ஒப்பீட்டு அறிக்கையில் இடம்பெற்றுள்ளது. இதன்மூலம் வாக்காளர்களின் விவரங்களுக்கு ஏற்ப தேர்தல் பிரச்சார பணிகளை கழகத்தினர் சிறப்பாக மேற்கொள்ள முடியும்.  </p>
+
+                            <p>ஒவ்வொரு  வாக்குச்சாவடி வாரியாக குறிப்பிட்ட தேர்தலில் அனைத்து கட்சிகளுக்கும் பெற்ற வாக்குகளின் எண்ணிக்கை, பதிவான மொத்த வாக்குகளின் விவரங்கள், வாக்கு வித்தியாசம் ஆகியவற்றை ஒப்பீட்டு அறிக்கை வாயிலாக அறியலாம்.  </p>
+
+                            <p>மூன்றாவது மற்றும் நான்காவது இடம்பெற்றுள்ள கட்சிகள், இரண்டாம் இடம்பெற்றுள்ள கட்சிகளுடன் கூட்டணி அமைக்கும் பட்சத்தில் அது எவ்வாறு திமுக மற்றும் அதன் கூட்டணிக் கட்சிகளின் வெற்றி வாய்ப்புகளைப் பாதிக்கும் என்பதை ஒப்பீடு செய்து நுண்ணறிவு தகவல்களாகவும் கழகத்தின் வெற்றிக்கு வழங்குகிறது.  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

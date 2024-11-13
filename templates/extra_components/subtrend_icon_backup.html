@@ -1,0 +1,33 @@
+{% macro render(SUBTREND, YEAR=none, IS_STROKE_WHITE_TRUE=False) -%}
+
+{% if SUBTREND == "S" %}
+    {% set subtrend_icon_path = "assets/safe_stroke_white.svg" if IS_STROKE_WHITE_TRUE else "assets/safe.svg" %} 
+{% elif SUBTREND == "D" %}
+    {% set subtrend_icon_path = "assets/difficult_stroke_white.svg" if IS_STROKE_WHITE_TRUE else "assets/difficult.svg" %}
+{% elif SUBTREND == "B" %}
+    {% set subtrend_icon_path = "assets/battleground_stroke_white.svg" if IS_STROKE_WHITE_TRUE else "assets/battleground.svg" %}
+{% elif SUBTREND == "F" %}
+    {% set subtrend_icon_path = "assets/favorable_stroke_white.svg" if IS_STROKE_WHITE_TRUE else "assets/favorable.svg" %}
+{% else %}
+    {% set subtrend_icon_path = ""  %}
+{% endif %}
+
+<div style="
+        width: 0.65rem;
+        height: 0.65rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        align-items: center;
+        justify-content: space-between;"
+    >
+    <img
+        style="height: 100%; width: 100%"
+        src={{ subtrend_icon_path }}
+    />
+
+    {% if YEAR %}
+        <p style="font-size: 6px; margin: 0px; font-weight: 800; letter-spacing: 0.5; " + {{ 'color: black; ' if not IS_STROKE_WHITE_TRUE else 'color: white;'  }}>{{ YEAR }}</p>
+    {% endif %}
+</div>
+{%- endmacro %}

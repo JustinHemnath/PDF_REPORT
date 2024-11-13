@@ -1,0 +1,54 @@
+{% import 'extra_components/header_template.html' as Header %}
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--It is necessary to use the UTF-8 encoding with plotly graphics to get e.g. negative signs to render correctly -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" type="text/css" href="assets/css1.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css2.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css3.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css4.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+            {% for appendix_page_obj in appendix_data_pages %}
+
+        <div id="comparative_analysis_pdf_body">
+            <div class="comparative_analysis_pdf_index_page page-break">
+                {{ Header.render(PAGE_NO=appendix_page_obj["page_number"], METADATA=METADATA, GRAPH_TITLES=none, TOTAL_PAGES=total_pages, HIERARCHY_ITEM_DATA=none) }}
+
+                <p style="text-align: center; font-weight: 800">{{METADATA["T"]["appendix"]}}</p>
+                <table class="ca_index_table add_bottom_borders full_border">
+                    <thead>
+                        <th colspan="1">{{ METADATA["T"]["booth_no"] }}</th>
+                        <th colspan="2">{{ METADATA["T"]["lb_name"] }}</th>
+                        <th colspan="6">{{ METADATA["T"]["streets_name"] }}</th>
+                        <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+                    </thead>
+                    <tbody>
+                        {% for appendix_item in appendix_page_obj["page_data"]["page_data"] %}
+                        <tr style="color: black" class="{{ ('dark_row' if loop.index0 % 2 else '') + (' final_row_border' if loop.last else '')  }}">
+                            <td colspan="1">{{ appendix_item["booth_no"] }}</td>
+                            <td colspan="2">{{ appendix_item["lb_name"] }}</td>
+                            <td colspan="6" id="streets_column">
+                                {{ appendix_item["streets_name"]|join(", ") }}
+                            </td>
+                            <td colspan="1">{{ appendix_item["page_no"] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </body>
+</html>

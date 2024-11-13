@@ -1,0 +1,126 @@
+{% import 'extra_components/trend_icon.html' as TrendIcon %} 
+{% import 'extra_components/subtrend_icon.html' as SubTrendIcon %} 
+
+{% macro render(PAGE_NO="", METADATA={}, GRAPH_TITLES=none, TOTAL_PAGES=0, HIERARCHY_ITEM_DATA=none, CHAPTER_NUM=none, OR_MATCHING_YEAR=none, chapter_header=none, TOTAL_BOOTHS_PER_CHAPTER=none) -%}
+
+{% set SUBTREND_WISE_BOOTH_COUNT_DATA = HIERARCHY_ITEM_DATA["subtrends_booth_count_data"] if HIERARCHY_ITEM_DATA %}
+<div>
+    <div class="comparative_analysis_black_bar"></div>
+    <div class="{{ 'comparative_analysis_pdf_header ' + (' thicc_header' if CHAPTER_NUM else '') }}">
+        {# total booths box #}
+        <div
+            style="
+                background-color: black;
+                flex: 1 1 10%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                color: white;
+                padding: 0px 0.5rem;
+            "
+        >   
+                <p style="font-size: 8px; text-align: center; line-height: 1.5">{{METADATA["T"]["total_booths"]}}:</p>
+                <p style="font-weight: 700; font-size: 13px; text-align: center">{{ METADATA["TOTAL_BOOTHS"] }}</p>
+        </div>
+
+        {# CENTER TITLE #}
+        <div
+            style="
+                background-color: rgb(214, 56, 45);
+                flex: 1 1 80%;
+                gap: 3px;
+                color: white;
+                padding: 0.3rem 0.5rem;
+                font-size: 13px;
+            "
+        >
+            {# for index pages #} 
+            {% if GRAPH_TITLES == none %}
+            <div style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    gap: 3px;
+                ">
+                    {# chapter header with title #}                
+                    {% if CHAPTER_NUM != none %}
+                    <div style="font-weight: 800; display: flex; gap: 7px; align-items: center;">  
+                        <div> {{ METADATA["T"]["chapter"] }} {{ CHAPTER_NUM }}: {{ '{} - '.format(OR_MATCHING_YEAR) if OR_MATCHING_YEAR else ''}} {{ chapter_header }}</div> 
+                        <div style="height: 90%; width: 1px; background-color: white;"></div> 
+                        <div>{{ METADATA["T"]["total_booths"] }}: {{ TOTAL_BOOTHS_PER_CHAPTER }}</div> 
+                    </div> 
+                    {% endif %}
+
+                    <p style="margin: 0px; font-weight: 800;">{{ METADATA["header"] }}</p> 
+            </div> 
+            {% else %} 
+            {# for graph pages #} 
+            <div style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    height: 100%;
+                ">
+                    {# chapter header with title #}                
+                    {% if CHAPTER_NUM != none %} 
+                        <div style="font-weight: 800; display: flex; gap: 7px; align-items: center;">  
+                            <div> {{ METADATA["T"]["chapter"] }} {{ CHAPTER_NUM }}: {{ '{} - '.format(OR_MATCHING_YEAR) if OR_MATCHING_YEAR else ''}} {{ chapter_header }}</div> 
+                            <div style="height: 90%; width: 1px; background-color: white;"></div> 
+                            <div>{{ METADATA["T"]["total_booths"] }}: {{ TOTAL_BOOTHS_PER_CHAPTER }}</div> 
+                        </div> 
+                    {% endif %} 
+                    
+                    {# AC name header #}                
+                    <div style="display: flex; gap: 5px; font-weight: 800;">
+                        <p style="margin: 0px;">{{ GRAPH_TITLES["top_header"] }}</p>
+                        
+                        {# trend icon and count #}
+                        {# 
+                            <div style="display: flex; gap: 12px; align-items: flex-start; ">
+                                {% for year_item in HIERARCHY_ITEM_DATA["year_wise_data"] %}
+                                    {{ TrendIcon.render(WON="W" in year_item["trend"], YEAR=year_item["year"], IS_DARK_COLOR_SCHEME=False) }}
+                                {% endfor %}
+                            </div>
+                            <p style="margin: 0px;"> - {{ HIERARCHY_ITEM_DATA["subtrends_booth_count_data"]["count"] }}</p>
+                        #}
+                    </div>
+
+                    {# bottom header with extra lb statistics #}
+                    <div style="display: flex; font-size: 9px; font-weight: 800;">
+                        {% for header_string in GRAPH_TITLES["bottom_header"] %}
+                            <p style="margin: 0px">{{ header_string }} <span style="margin: 0 5px; ">|</span> </p>
+                        {% endfor %}
+                    </div>
+            </div> 
+            {% endif %}
+
+        </div>
+
+        {# page no box #}
+        <div
+            style="
+                    background-color: black;
+                    flex: 1 1 10%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px;
+                    color: white;
+                    padding: 0px 1rem;
+                    font-size: 12px;
+                "
+        >   
+            {% if PAGE_NO %}
+                <p style="font-size: 8px;">{{METADATA["T"]["page_no"]}}:</p>
+                <p style="font-weight: 700; font-size: 10px;">{{PAGE_NO}} / {{TOTAL_PAGES}}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%- endmacro %}

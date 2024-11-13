@@ -1,0 +1,24 @@
+{
+    "en": {
+        "preface": {
+            "thumbs_up": "Indicates a victory for the DMK or its allies at a particular booth",
+            "thumbs_down": "Represents a loss for the DMK or its allies at a particular booth",
+            "safe_text": "Signifies a victory for the DMK or its allies by a margin exceeding <span style='font-weight:700 !important;'>5%</span> at a booth",
+            "favorable_text": "Marks a narrow victory for the DMK or its allies with a margin between <span style='font-weight:700 !important;'>0-5%</span>",
+            "battle_ground_text": "Reflects a narrow defeat for the DMK or its allies by a margin of <span style='font-weight:700 !important;'>0-5%</span>",
+            "difficult_text": "Denotes a loss for the DMK or its allies by more than <span style='font-weight:700 !important;'>5%</span> at a booth",
+            "preface_extra_text": ""
+        }
+    },
+    "ta": {
+        "preface": {
+            "thumbs_up": "என்பது குறிப்பிட்ட வாக்குச்சாவடியில்  திமுக அல்லது அதன் கூட்டணி கட்சிகள் வெற்றிப்பெற்றதை குறிக்கும்",
+            "thumbs_down": "என்பது  குறிப்பிட்ட வாக்குச்சாவடியில் திமுக அல்லது அதன் கூட்டணி  கட்சிகள் தோல்வியுற்றதை குறிக்கும்",
+            "safe_text": "என்பது  குறிப்பிட்ட வாக்குச்சாவடியில் <span style='font-weight:700 !important;'>5%</span> அதிகமான வாக்கு வித்தியாசத்தில்  திமுக அல்லது அதன் கூட்டணி  கட்சிகள் வெற்றிப்பெற்றதை குறிக்கும்",
+            "favorable_text": "என்பது  குறிப்பிட்ட வாக்குச்சாவடியில் <span style='font-weight:700 !important;'>0 - 5%</span> உட்பட்ட வாக்கு வித்தியாசத்தில் திமுக அல்லது அதன் கூட்டணி  கட்சிகள்  வெற்றிப்பெற்றதை குறிக்கும்",
+            "battle_ground_text": "என்பது  குறிப்பிட்ட வாக்குச்சாவடியில் <span style='font-weight:700 !important;'>0 - 5%</span> உட்பட்ட வாக்கு வித்தியாசத்தில் திமுக அல்லது அதன் கூட்டணி  கட்சிகள்   தோல்வியுற்றதை குறிக்கும்",
+            "difficult_text": "என்பது  குறிப்பிட்ட வாக்குச்சாவடியில் <span style='font-weight:700 !important;'>5%</span> அதிகமான வாக்கு வித்தியாசத்தில் திமுக அல்லது அதன் கூட்டணி  கட்சிகள்   தோல்வியுற்றதை குறிக்கும்",
+            "preface_extra_text": " சட்டமன்றத் தொகுதியில் உள்ள <span style='font-weight:700 !important;'>319</span> வாக்குச்சாவடிகளில், <span style='font-weight:700 !important;'>308</span> வாக்குச்சாவடிகள் பற்றிய விபரங்கள் மட்டுமே உள்ளது. மீதமுள்ள <span style='font-weight:700 !important;'>11</span> வாக்குச்சாவடிகள் புதியவை, எனவே அவை போக்குகளில் சேர்க்கப்படவில்லை அல்லது அந்த வாக்குச்சாவடிகள் குறித்த தரவுகள் தேர்தல் ஆணைய இணையதளத்தின் <span style='font-weight:700 !important;'>படிவம் 20-ல்</span> இல்லை."
+        }
+    }
+}

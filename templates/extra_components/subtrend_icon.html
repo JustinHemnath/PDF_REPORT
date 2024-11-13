@@ -1,0 +1,38 @@
+{% macro render(SUBTREND, YEAR=none, IS_STROKE_WHITE_TRUE=False, SHOW_BRACKETS=True) -%}
+
+{% if SUBTREND == "S" %}
+    {% set threshold_value = "(>5%)" if SHOW_BRACKETS else ">5%" %} 
+    {% set text_color = ' threshold_text_safe ' %} 
+{% elif SUBTREND == "F" %}
+    {% set threshold_value = "(0% - 5%)" if SHOW_BRACKETS else "0% - 5%" %}
+    {% set text_color = ' threshold_text_favorable ' %}
+{% elif SUBTREND == "B" %}
+        {% set threshold_value = "(-5% - 0%)" if SHOW_BRACKETS else "-5% - 0%" %}
+        {% set text_color = ' threshold_text_battlegrounds ' %}
+{% elif SUBTREND == "D" %}
+    {% set threshold_value = "(>-5%)" if SHOW_BRACKETS else ">-5%" %}
+    {# set threshold_value = "(-10% < -5%)" if SHOW_BRACKETS else "-10% < -5%" #}
+    {% set text_color = ' threshold_text_difficult ' %}
+{% else %}
+    {% set threshold_value = ""  %}
+    {% set text_color = "" %}
+{% endif %}
+
+<div style="
+        height: 0.65rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        align-items: center;
+        justify-content: center;"
+    >
+    <div style="width: 100%; height: 100%; font-size: 8px; font-weight: 900; text-wrap: nowrap; " class="{{ (' text_shadow_white ' if IS_STROKE_WHITE_TRUE else '') + text_color }}">
+        {{ threshold_value }}
+    </div>
+    
+
+    {% if YEAR %}
+        <p style="font-size: 6px; margin: 0px; font-weight: 800; letter-spacing: 0.5; " + {{ 'color: black; ' if not IS_STROKE_WHITE_TRUE else 'color: white;'  }}>{{ YEAR }}</p>
+    {% endif %}
+</div>
+{%- endmacro %}

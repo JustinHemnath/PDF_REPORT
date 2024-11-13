@@ -1,0 +1,298 @@
+{% import 'extra_components/header_template.html' as Header %}
+{% import 'extra_components/trend_icon.html' as TrendIcon %} 
+{% import 'extra_components/subtrend_icon.html' as SubTrendIcon %} 
+{% import 'threshold_template.html' as Threshold %} 
+
+{% macro render(index_data_pages=none, METADATA=none, total_pages=0, flag=0, CHAPTER_NUM=none, chapter_header=none, OR_MATCHING_YEAR=none, TOTAL_BOOTHS_PER_CHAPTER=none) -%}
+            {% for index_page_obj in index_data_pages %}
+              <div class="comparative_analysis_pdf_index_page page-break" style="position: relative;">
+                  {{ Header.render(PAGE_NO=index_page_obj["page_number"], METADATA=METADATA, GRAPH_TITLES=none, TOTAL_PAGES=total_pages, HIERARCHY_ITEM_DATA=none, CHAPTER_NUM=CHAPTER_NUM, OR_MATCHING_YEAR=OR_MATCHING_YEAR, chapter_header=chapter_header, TOTAL_BOOTHS_PER_CHAPTER=TOTAL_BOOTHS_PER_CHAPTER) }}
+
+                  <div style="text-align: center; font-weight: 800; width: 100%;">
+                    <span>{{ METADATA["T"]["index_title"] }} -</span>
+                    {% if CHAPTER_NUM != none %}
+                        {% if OR_MATCHING_YEAR %} 
+                            <span style="padding: 0 5px;">{{ OR_MATCHING_YEAR }} -</span> 
+                        {% endif %} 
+                        <span>{{ chapter_header }}</span> 
+                    {% endif %}
+                  </div>
+
+                  <table class="ca_index_table add_bottom_borders full_border {{ 'nested_table_1' if compare_type != 'locality' else '' }}">
+                        {% if METADATA["compare_type"] == "booth" %}
+                            <thead>
+                                <th colspan="1">{{ METADATA["T"]["s_no"] }}</th>
+                                <th colspan="2">{{ METADATA["T"]["lb_name"] }}</th>
+                                <th colspan="1">{{ METADATA["T"]["lb_type"] }}</th>
+                                {% if METADATA["TRENDS"] == True %}
+                                    <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["trends"] }}</th>
+                                    <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["total_booths_per_trend"] }}</th>
+                                    <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["sub_trends"] }}</th>
+                                    <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["total_booths_per_sub_trend"] }}</th>
+                                {% endif %}
+                                <th colspan="3">{{ METADATA["T"]["booth_no"] }}</th>
+                                <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["total_booths_per_local_body"] }}</th>
+                                <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+                            </thead>
+                            <tbody>
+                                {% for index_item in index_page_obj["page_data"]["page_data"] %}
+                                <tr style="color: black" class="{{ 'dark_row' if index_item['row_theme'] else ''}}">
+                                    <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["s_no"] }}</td>
+                                    <td colspan="2" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["lb_name"] }}</td>
+                                    <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["lb_type"] }}</td>
+                                    {% if METADATA["TRENDS"] == True %}
+                                        <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">
+                                            {% if index_item['has_top_line']  %}
+                                                <div style="display: flex; gap: 12px; justify-content: center; align-items: center; position: relative; top: -3px; ">
+                                                    {% for trend_letter in index_item["trend"] %}
+                                                        {{ TrendIcon.render(WON="W" in trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_DARK_COLOR_SCHEME=True) }}
+                                                    {% endfor %}
+                                                </div>
+                                            {% else %}
+                                                <div></div>
+                                            {% endif %}
+                                        </td>
+                                        <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["total_booth_count_per_trend"] if index_item["total_booth_count_per_trend"] else "" }}</td>
+                                        <td colspan="1" class="{{ (' add_border_top') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">
+                                            <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                                                {% for sub_trend_letter in index_item["sub_trend"] %}
+                                                    <div>
+                                                        {{ SubTrendIcon.render(SUBTREND=sub_trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_STROKE_WHITE_TRUE=False) }}
+                                                    </div>
+                                            {% endfor %}
+                                            </div>
+                                        </td>
+                                        <td colspan="1" class="{{ (' add_border_top')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["booth_count"] if flag == 0 else index_item["booth_list_expanded"]|length() }}</td>
+                                    {% endif %}
+                                    <td colspan="3" style="text-align: left;" class="{{ (' add_border_top') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ ", ".join(index_item["booth_list"]) if flag == 0 else ", ".join(index_item["booth_list_expanded"]) }}</td>
+
+                                    <td colspan="1" style="font-weight: 800" class="{{ ('no_cell_border' if not index_item['total_booth_count'] else '') + (' final_row_border' if loop.last else '')  + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["total_booth_count"] or "" }}</td>
+                                    <td colspan="1" class="{{ (' add_border_top') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["page_no_list"] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% elif METADATA["compare_type"] == "local_body" %}
+                            <thead>
+                                <th colspan="1">{{ METADATA["T"]["s_no"] }}</th>
+                                <th colspan="4">{{ METADATA["T"]["local_body_structures"] }}</th>
+                                {% if METADATA["TRENDS"] == True %}
+                                    <th colspan="1">{{ METADATA["T"]["trends"] }}</th>
+                                {% endif %}
+                                <th colspan="1">{{ METADATA["T"]["lb_count"] }}</th>
+                                <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+                            </thead>
+                            <tbody>
+                                {% for index_item in index_page_obj["page_data"]["page_data"] %}
+                                <tr style="color: black" class="{{ 'dark_row' if index_item['row_theme'] else '' }}">
+                                    <td colspan="1">{{ index_item["s_no"] }}</td>
+                                    <td colspan="4" style="text-align: left;">{{ ", ".join(index_item["local_body"]) }}</td>
+                                    {% if METADATA["TRENDS"] == True %}
+                                        <td colspan="1">
+                                        <div style="display: flex; gap: 12px; justify-content: center; align-items: center;">
+                                            {% for trend_letter in index_item["trend"] %}
+                                                {{ TrendIcon.render(WON="W" in trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_DARK_COLOR_SCHEME=True) }}
+                                            {% endfor %}
+                                        </div>
+                                        </td>
+                                    {% endif %}
+                                    <td colspan="1">{{ index_item["lb_count"] }}</td>
+                                    <td colspan="1">{{ index_item["page_no_list"] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% elif METADATA["compare_type"] == "ac" %}
+                            <thead>
+                                <th colspan="1">{{ METADATA["T"]["s_no"] }}</th>
+                                <th colspan="4">{{ METADATA["T"]["ac"] }}</th>
+                                {% if METADATA["TRENDS"] == True %}
+                                    <th colspan="1">{{ METADATA["T"]["trends"] }}</th>
+                                {% endif %}
+                                <th colspan="1">{{ METADATA["T"]["ac_count"] }}</th>
+                                <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+                            </thead>
+                            <tbody>
+                                {% for index_item in index_page_obj["page_data"]["page_data"] %}
+                                    <td colspan="1">{{ index_item["s_no"] }}</td>
+                                    <td colspan="4" style="text-align: left;">{{ index_item["ac_name"] }}</td>
+                                    {% if METADATA["TRENDS"] == True %}
+                                        <td colspan="1">
+                                        <div style="display: flex; gap: 12px; justify-content: center; align-items: center;">
+                                            {% for trend_letter in index_item["trend"] %}
+                                                {{ TrendIcon.render(WON="W" in trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_DARK_COLOR_SCHEME=True) }}
+                                            {% endfor %}
+                                        </div>
+                                        </td>
+                                    {% endif %}
+                                    <td colspan="1">{{ index_item["ac_count"] }}</td>
+                                    <td colspan="1">{{ index_item["page_no_list"] }}</td>
+                                {% endfor %}
+                            </tbody>
+                        {% elif METADATA["compare_type"] == "locality" %}
+                            {{ TYPE_LOCALITY(METADATA=METADATA, index_page_obj=index_page_obj, flag=flag) }}
+                        {% elif METADATA["compare_type"] == "ward_vp" %}
+                            {{ TYPE_WARD_VP(METADATA=METADATA, index_page_obj=index_page_obj, flag=flag) }}
+                      {% endif %}
+                      
+                  </table>
+                  
+                    <table class="ca_index_table nested_table_2 full_border">
+                        <tbody>
+                            {% if METADATA["compare_type"] in ["booth", "locality", "ward_vp"] %}
+                            <tr style="color: black">
+                                <td colspan="7" style="font-size: 11px">{{ METADATA["T"]["index_page_table_total_label_for_booth"] }}</td>
+                                <td colspan="1">{{ index_page_obj["page_data"]["total_count_per_table"] }}</td>
+                                <td colspan="2"></td>
+                                <td colspan="1"></td>
+                            </tr>
+                            {% elif METADATA["compare_type"] == "local_body" %}
+                                <tr style="color: black">
+                                    <td colspan="7" style="font-size: 11px">{{ METADATA["T"]["index_page_table_total_label_for_lb"] }}</td>
+                                    <td colspan="1">{{ index_page_obj["page_data"]["total_count_per_table"] }}</td>
+                                    <td colspan="1"></td>
+                                </tr>
+                            {% else %}
+                                <tr style="color: black">
+                                    <td colspan="7" style="font-size: 11px">{{ METADATA["T"]["index_page_table_total_label_for_ac"] }}</td>
+                                    <td colspan="1">{{ 1 }}</td>
+                                    <td colspan="1"></td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+
+                  <div style="position: absolute; bottom: -0.45rem; left: 1rem; width: 97%;">
+                        {{Threshold.render(METADATA=METADATA)}}
+                    </div>
+                </div>
+            {% endfor %}
+{%- endmacro %}
+
+{% macro TYPE_LOCALITY(METADATA=none, index_page_obj=none, flag=none) %}
+    <thead>
+        {# <th colspan="1">{{ METADATA["T"]["s_no"] }}</th> #}
+        <th colspan="2">{{ METADATA["T"]["lb_name"] }}</th>
+        <th colspan="1">{{ METADATA["T"]["locality"] }}</th>
+        <th colspan="1">{{ METADATA["T"]["ward_vp"] }}</th>
+        {% if METADATA["TRENDS"] == True %}
+            <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["trends"] }}</th>
+            <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["total_booths_per_trend"] }}</th>
+            <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["sub_trends"] }}</th>
+            <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["total_booths_per_sub_trend"] }}</th>
+        {% endif %}
+        <th colspan="2">{{ METADATA["T"]["booth_no"] }}</th>
+        <th colspan="1" style="font-size: 7px;">{{ METADATA["T"]["total_booths_per_locality"] }}</th>
+        <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+    </thead>
+    <tbody>
+        {% for index_item in index_page_obj["page_data"]["page_data"] %}
+        <tr style="color: black" class="{{ 'dark_row' if index_item['row_theme'] else ''}}">
+            {# <td colspan="1"  style="background-color: white;" class="{{ (' add_border_top' if index_item['has_top_line'] else '') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["new_s_no"] or "" }}</td> #}
+            <td colspan="2" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["lb_name"] if index_item['has_top_line'] else '' }}</td>
+            <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}" style="font-size: 8px;">{{ index_item["locality"] if index_item['has_top_line'] else '' }}</td>
+            <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}" style="font-size: 8px;">{{ ", ".join(index_item["ward_vp"]) }}</td>
+            {% if METADATA["TRENDS"] == True %}
+                <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">
+                    {% if index_item['has_top_line']  %}
+                        <div style="display: flex; gap: 12px; justify-content: center; align-items: center; position: relative; top: -3px; ">
+                            {% for trend_letter in index_item["trend"] %}
+                                {{ TrendIcon.render(WON="W" in trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_DARK_COLOR_SCHEME=True) }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div></div>
+                    {% endif %}
+                </td>
+                <td colspan="1" class="{{ (' add_border_top' if index_item['has_top_line'] else '')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["total_booth_count_per_trend"] if index_item["total_booth_count_per_trend"] else "" }}</td>
+                <td colspan="1" class="{{ (' add_border_top') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">
+                    <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                        {% for sub_trend_letter in index_item["sub_trend"] %}
+                            <div>
+                                {{ SubTrendIcon.render(SUBTREND=sub_trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_STROKE_WHITE_TRUE=False) }}
+                            </div>
+                    {% endfor %}
+                    </div>
+                </td>
+                <td colspan="1" class="{{ (' add_border_top')  + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["booth_count"] if flag == 0 else index_item["booth_list_expanded"]|length() }}</td>
+            {% endif %}
+            <td colspan="2" style="text-align: left;" class="{{ (' add_border_top') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ ", ".join(index_item["booth_list"]) if flag == 0 else ", ".join(index_item["booth_list_expanded"]) }}</td>
+
+            <td colspan="1" style="font-weight: 800" class="{{ ('no_cell_border' if not index_item['total_booth_count'] else '') + (' final_row_border' if loop.last else '')  + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["total_booth_count"] or "" }}</td>
+            <td colspan="1" class="{{ (' add_border_top') + (' final_row_border' if loop.last else '') + (' add_thick_border' if index_item['add_thick_border'] else '' ) }}">{{ index_item["page_no_list"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+{%- endmacro %}
+
+
+{% macro TYPE_WARD_VP(METADATA=none, index_page_obj=none, flag=none) %}
+    <thead>
+        {# <th colspan="1">{{ METADATA["T"]["s_no"] }}</th>  #}
+        <th colspan="2">{{ METADATA["T"]["lb_name"] }} ({{ METADATA["T"]["total_booths"] }})</th>
+        <th colspan="2">{{ METADATA["T"]["ward_vp"] }} ({{ METADATA["T"]["total_booths"] }})</th>
+        {% if METADATA["TRENDS"] == True %}
+            <th colspan="2">{{ METADATA["T"]["trends"] }} ({{ METADATA["T"]["total_booths"] }})</th>
+            <th colspan="2">{{ METADATA["T"]["sub_trends"] }} ({{ METADATA["T"]["total_booths"] }})</th>
+        {% endif %}
+        <th colspan="2">{{ METADATA["T"]["booth_no"] }}</th>
+        <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+    </thead>
+
+    <tbody style="color: black; width: 100%;">
+        {% for CURRENT_LB_KEY in index_page_obj["page_data"]["grouped_page_data"] %}
+        {% set CURRENT_LB_OBJ = index_page_obj["page_data"]["grouped_page_data"][CURRENT_LB_KEY] %}
+            {#  #}
+            <tr class="major_separator_border">
+                <td colspan="2" style="font-size: 12px;">{{CURRENT_LB_OBJ["meta"]["s_no"] }}. {{ CURRENT_LB_KEY }} - {{ CURRENT_LB_OBJ["meta"]["lb_type"] }} <span style="font-weight: 700">({{ CURRENT_LB_OBJ["meta"]["total_booths"] }})</span></td>
+                <td colspan="9" class="no_table_padding">
+                    <table class="ca_grouped_table">
+                        {% for CURRENT_WARD_VP_KEY in CURRENT_LB_OBJ["data"] %}
+                        {% set CURRENT_WARD_VP_OBJ = CURRENT_LB_OBJ["data"][CURRENT_WARD_VP_KEY] %}
+                        <tr class="{{ ('no_cell_border ' if loop.last else '') + ' major_separator_border' }}">
+                            <td colspan="2" style="font-size: 12px;">{{  METADATA["T"]["ward"] if CURRENT_WARD_VP_OBJ["meta"]["ward_type"] == "ward" else '' }} {{ CURRENT_WARD_VP_KEY }} <span style="font-weight: 700">({{ CURRENT_WARD_VP_OBJ["meta"]["total_booths"] }})</span></td>
+                            <td colspan="7" class="no_table_padding">
+                                <table class="ca_grouped_table">
+                                    {% for CURRENT_TREND_KEY in CURRENT_WARD_VP_OBJ["data"] %}
+                                    {% set CURRENT_TREND_OBJ = CURRENT_WARD_VP_OBJ["data"][CURRENT_TREND_KEY] %}
+                                        <tr class="{{ 'no_cell_border ' if loop.last else '' }}">
+                                            <td colspan="2">
+                                                <div style="display: flex; gap: 12px; justify-content: center; align-items: center; position: relative; top: -3px; ">
+                                                    {% for trend_letter in CURRENT_TREND_KEY %}
+                                                        {{ TrendIcon.render(WON="W" in trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_DARK_COLOR_SCHEME=True) }}
+                                                    {% endfor %}
+                                                    <span style="font-weight: 700">({{ CURRENT_TREND_OBJ["meta"]["total_booths"] }})</span>
+                                                </div>
+                                            </td>
+                                            <td colspan="5" class="no_table_padding">
+                                                <table class="ca_grouped_table">
+                                                    {% for index_item in CURRENT_TREND_OBJ["data"] %}
+                                                        <tr class="{{ 'no_cell_border ' if loop.last else '' }}">
+                                                            {% if METADATA["TRENDS"] == True %}
+                                                                <td colspan="2" class="{{ 'add_border_left' }}">
+                                                                    <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                                                                        {% for sub_trend_letter in index_item["sub_trend"] %}
+                                                                            <div>
+                                                                                {{ SubTrendIcon.render(SUBTREND=sub_trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_STROKE_WHITE_TRUE=False) }}
+                                                                            </div>
+                                                                        {% endfor %}
+                                                                        <span style="font-weight: 700">({{ index_item["booth_count"] }})</span>
+                                                                    </div>
+                                                                </td>
+                                                            {% endif %}
+                                                            <td colspan="2" style="text-align: left;" class="{{ 'add_border_left' }}">{{ ", ".join(index_item["booth_list"]) if flag == 0 else ", ".join(index_item["booth_list_expanded"]) }}</td>
+                                                            <td colspan="1" class="{{ 'add_border_left' }}">{{ index_item["page_no_list"] }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                </table>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+{%- endmacro %}

@@ -1,0 +1,121 @@
+<head>
+  <meta charset="utf-8" />
+  <!--It is necessary to use the UTF-8 encoding with plotly graphics to get e.g. negative signs to render correctly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="assets/css1.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css2.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css3.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css4.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+</head>
+
+{% macro render(TITLE=[], GENDER_DATA={}, AGE_DATA={}, HIERARCHY_ITEM_VALUE="", METADATA={}) -%}
+<div class="count-table">
+  <div class="section-2-table-header">
+    <div style="text-align: center; font-weight: 800; font-size: 9px; display: flex;">
+      {{ TITLE[0] }} {{ HIERARCHY_ITEM_VALUE }} - {{ TITLE[1] }} (2024)
+    </div>
+  </div>
+
+  <div class="section-2-table-body">
+    <div class="table-content">
+      <div style="font-weight: 700; margin: auto; width: 1.1rem; height: 1.1rem;">
+        <img
+            style="height: 100%; width: 100%"
+            src="assets/pdf_male.svg"
+        />
+      </div>
+      <div class="horizontal-divider"></div>
+      {% if GENDER_DATA["male"] %}   
+        <p style="margin: auto; font-size: 8px;">{{ GENDER_DATA["male"] }} ({{ ((GENDER_DATA["male"] / GENDER_DATA["total"]) * 100)|round(1) }}%)</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+    <div class="vertical_divider_small"></div>
+    <div class="table-content">
+      <div style="font-weight: 700; margin: auto; width: 1.1rem; height: 1.1rem;">
+        <img
+            style="height: 100%; width: 100%"
+            src="assets/pdf_female.svg"
+        />
+      </div>
+      <div class="horizontal-divider"></div>
+      {% if GENDER_DATA["female"] %}   
+        <p style="margin: auto; font-size: 8px;">{{GENDER_DATA["female"] }} ({{ ((GENDER_DATA["female"] / GENDER_DATA["total"]) * 100)|round(1) }}%)</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+    <div class="vertical_divider_small"></div>
+    <div class="table-content">
+      <p style="font-weight: 700; margin: auto">{{ METADATA["T"]["total"] }}</p>
+      <div class="horizontal-divider"></div>
+      {% if GENDER_DATA["total"] %}   
+        <p style="font-weight: 800; margin: auto">{{GENDER_DATA["total"] }} {{ ' ({}%)'.format(GENDER_DATA["vote_percentage"] ) if GENDER_DATA["vote_percentage"] != none }}</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+   
+
+    {# #} {# #} {# #} 
+
+    <div class="vertical_divider_big"></div>
+
+    <div class="table-content">
+      <p style="font-weight: 700; margin: auto">18 - 30</p>
+      <div class="horizontal-divider"></div>
+      {% if AGE_DATA["age_18_30"] %}   
+        <p style="margin: auto; font-size: 8px;">{{AGE_DATA["age_18_30"] }} ({{ ((AGE_DATA["age_18_30"] / AGE_DATA["total_count"]) * 100)|round(1) }}%)</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+    <div class="vertical_divider_small"></div>
+    <div class="table-content">
+      <p style="font-weight: 700; margin: auto">31 - 50</p>
+      <div class="horizontal-divider"></div>
+      {% if AGE_DATA["age_31_50"] %}   
+        <p style="margin: auto; font-size: 8px;">{{AGE_DATA["age_31_50"] }} ({{ ((AGE_DATA["age_31_50"] / AGE_DATA["total_count"]) * 100)|round(1) }}%)</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+    <div class="vertical_divider_small"></div>
+    <div class="table-content">
+      <p style="font-weight: 700; margin: auto">51 - 80</p>
+      <div class="horizontal-divider"></div>
+      {% if AGE_DATA["age_51_80"] %}   
+        <p style="margin: auto; font-size: 8px;">{{AGE_DATA["age_51_80"] }} ({{ ((AGE_DATA["age_51_80"] / AGE_DATA["total_count"]) * 100)|round(1) }}%)</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+    <div class="vertical_divider_small"></div>
+    <div class="table-content">
+      <p style="font-weight: 700; margin: auto">81+</p>
+      <div class="horizontal-divider"></div>
+      {% if AGE_DATA["age_81+"] %}   
+        <p style="margin: auto; font-size: 8px;">{{AGE_DATA["age_81+"] }} ({{ ((AGE_DATA["age_81+"] / AGE_DATA["total_count"]) * 100)|round(1) }}%)</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+    <div class="vertical_divider_small"></div>
+    <div class="table-content">
+      <p style="font-weight: 700; margin: auto">{{ METADATA["T"]["total"] }}</p>
+      <div class="horizontal-divider"></div>
+      {% if AGE_DATA["total_count"] %}   
+        <p style="font-weight: 800; margin: auto">{{AGE_DATA["total_count"] }} {{ ' ({}%)'.format(AGE_DATA["vote_percentage"] ) if AGE_DATA["vote_percentage"] != none else '' }}</p>
+      {% else %}
+        <p style="margin: auto"></p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{%- endmacro %}

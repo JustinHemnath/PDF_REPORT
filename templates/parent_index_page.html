@@ -1,0 +1,64 @@
+{% import 'extra_components/header_template.html' as Header %}
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--It is necessary to use the UTF-8 encoding with plotly graphics to get e.g. negative signs to render correctly -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" type="text/css" href="assets/css1.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css2.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css3.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css4.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+
+        {# plotly js min file #}
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.33.0/plotly.min.js"
+            integrity="sha512-kG/veDBO4Av/ffjTdtEvtsUkVgAisp5MWbymAUc5vJlyZb3WSZ+gEC8cNlAACBzaHQQLTUKqRaNIKeIc44yD6w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+
+    <body>
+        <div id="comparative_analysis_pdf_body">
+            {% for parent_index_obj in parent_index_data %}
+                <div class="comparative_analysis_pdf_index_page page-break">
+                    {{ Header.render(PAGE_NO=parent_index_obj["page_number"], METADATA=METADATA, GRAPH_TITLES=none, TOTAL_PAGES=total_pages, HIERARCHY_ITEM_DATA=none) }}
+
+                    <p style="text-align: center; font-weight: 800">{{ METADATA["T"]["parent_index_title"] }}</p>
+                    <table class="ca_index_table add_bottom_borders full_border">
+                        <thead>
+                            <th colspan="1">{{ METADATA["T"]["chapter_no"] }}</th>
+                            <th colspan="2">{{ METADATA["T"]["chapter"] }}</th>
+                            <th colspan="3">{{ METADATA["T"]["booth_no"] }}</th>
+                            <th colspan="1">{{ METADATA["T"]["booth_count"] }}</th>
+                            <th colspan="1">{{ METADATA["T"]["page_no"] }}</th>
+                        </thead>
+
+                        <tbody>
+                            {% for parent_index_item in parent_index_obj["page_data"] %}
+                                {% set color_idx = 0 if parent_index_item["flag"] == 0 else 1 if parent_index_item["flag"] in [1, 2, 3] else 2 if parent_index_item["flag"] in [4, 5, 6] else 3 %}
+                                <tr style="color: black; font-weight: 600; padding: 3px 0;"  class="{{ (METADATA['COLORS'][color_idx]) + (' final_row_border' if loop.last else '') }}">
+                                    <td colspan="1">{{ METADATA["T"]["chapter"] + " " + parent_index_item["s_no"]|string() }}</td>
+                                    <td colspan="2" id="streets_column_no_small_font">{{ parent_index_item["lb_name"] }}</td>
+                                    <td colspan="3" id="streets_column_no_small_font">{{ ", ".join(parent_index_item["booth_no"]) if parent_index_item["booth_no"] else "-" }}</td>
+                                    <td colspan="1">{{ parent_index_item["booth_count"] }}</td>
+                                    <td colspan="1">{{ parent_index_item["page_number"] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

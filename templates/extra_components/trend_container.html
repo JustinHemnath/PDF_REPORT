@@ -1,0 +1,110 @@
+{% import 'extra_components/trend_icon.html' as TrendIcon %} 
+{% import 'extra_components/subtrend_icon.html' as SubTrendIcon %} 
+
+{% macro TrendContainer(METADATA=none, hierarchy_item_one=none, hierarchy_item_two=none) -%}
+    {% set HEADER_ITEM_CHECK_KEY = METADATA["HEADER_ITEM_CHECK_KEY"] %}
+    {% set SUBTREND_DATA = hierarchy_item_one["subtrends_booth_count_data"]["items"] %}
+        <div
+            style="
+                height: 3.8rem;
+                background-color: black;
+                color: white;
+                display: flex;
+                align-items: center;
+                font-size: 8px;
+                line-height: 1.1;
+                border: 1px solid black;
+                padding: 3px; 
+            "
+            class="{{ 'trends_container_visible' if METADATA['TRENDS'] else 'trends_container_hidden' }}"
+        >   
+            {# Trends container #}
+            <div style="flex: 3 1 50%; text-align: center; padding: 2px 1rem; display: flex; flex-direction: column; gap: 3px; justify-content: space-around; align-items: center; height: 100%;">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                    <div style="display: flex; gap: 12px; justify-content: center; align-items: center; position: relative; top: -5px; ">
+                        {% for trend_letter in hierarchy_item_one["trend"] %}
+                            {{ TrendIcon.render(WON="W" in trend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_DARK_COLOR_SCHEME=True) }}
+                        {% endfor %}
+                    </div>
+
+                    <p style="font-weight: 900; font-size: 10px; margin: 0 3px; ">({{ hierarchy_item_one[HEADER_ITEM_CHECK_KEY]["count"] }})</p> 
+                </div>
+
+                <div style="height: 1px; width: 80%; background-color: lightgrey; "></div>
+
+                {% if METADATA["compare_type"] == "ac" %}
+                    <div style="font-weight: 900;">
+                        {{ hierarchy_item_one["header_data"][HEADER_ITEM_CHECK_KEY] }}
+                    </div>
+                {% else %}
+                    <div style="display: flex; gap: 1px; align-items: center; flex-wrap: wrap; justify-content: center;">
+                        {% for hierarchy_item_number in hierarchy_item_one[HEADER_ITEM_CHECK_KEY]["items"] %}
+                            <div> 
+                                {% if (hierarchy_item_one["hierarchy_item_value"]|string() == hierarchy_item_number|string()) or 
+                                (hierarchy_item_two and hierarchy_item_two["hierarchy_item_value"]|string() == hierarchy_item_number|string()) 
+                                %}
+                                    <span style="font-weight: 900; font-size: 9px; margin-left: 2px;">
+                                        <span>{{ hierarchy_item_number }}</span>
+                                        {% if not loop.last %}<span>,  </span>{% endif %}
+                                    </span>
+                                {% else %}
+                                    <span style="font-weight: 500; margin-left: 2px;">
+                                        <span>{{ hierarchy_item_number }}</span>
+                                        {% if not loop.last %}<span>,  </span>{% endif %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+
+            {# Subtrends container #}
+            <div style="flex: 2 1 60%; display: flex; justify-content: space-between; align-items: center; border-left: 2px solid white; height: 100%; padding: 2px 2px;">
+                {% for SUBTREND_KEY in SUBTREND_DATA %}
+                    {% set IS_MATCHES_SUBTREND_ITEM = hierarchy_item_one["sub_trend"] == SUBTREND_KEY %}
+                    {# subtrend icons #}
+                    <div style="width: 100%; text-align: center; padding: 2px 0.5rem; display: flex; flex-direction: column; gap: 3px; justify-content: space-around; align-items: center; border-left: 2px solid white; height: 99%;" class="{{ ' background_white_text_black ' if IS_MATCHES_SUBTREND_ITEM else '' }}">
+                        <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                            <div style="display: flex; gap: 12px; justify-content: center; align-items: center; ">
+                                {% for subtrend_letter in SUBTREND_KEY %}
+                                    {{ SubTrendIcon.render(SUBTREND=subtrend_letter, YEAR=METADATA["YEARS_LIST"][loop.index0], IS_STROKE_WHITE_TRUE=False, SHOW_BRACKETS=False) }}
+                                {% endfor %}
+                            </div>
+            
+                            <p style="font-weight: 900; font-size: 10px; margin: 0 3px; ">({{ SUBTREND_DATA[SUBTREND_KEY]["count"] }})</p> 
+                        </div>
+
+                        <div style="height: 1px; width: 80%; " class="{{ ' bg_black ' if IS_MATCHES_SUBTREND_ITEM else ' bg_grey ' }}"></div>
+
+                        <div style="display: flex; gap: 1px; align-items: center; flex-wrap: wrap; justify-content: center;">
+                            {% if SUBTREND_DATA[SUBTREND_KEY]["items"]  %}
+                                {% if IS_MATCHES_SUBTREND_ITEM %}
+                                    {% for hierarchy_item_number in SUBTREND_DATA[SUBTREND_KEY]["items"]  %}
+                                        <div> 
+                                            {% if (hierarchy_item_one["hierarchy_item_value"]|string() == hierarchy_item_number|string())  or 
+                                            (hierarchy_item_two and hierarchy_item_two["hierarchy_item_value"]|string() == hierarchy_item_number|string()) %}
+                                                <span style="font-weight: 900; font-size: 9px; margin-left: 2px;">
+                                                    <span>{{ hierarchy_item_number }}</span>
+                                                    {% if not loop.last %}<span>,  </span>{% endif %}
+                                                </span>
+                                            {% else %}
+                                                <span style="font-weight: 500; margin-left: 2px;">
+                                                    <span>{{ hierarchy_item_number }}</span>
+                                                    {% if not loop.last %}<span>,  </span>{% endif %}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                        <div style="font-weight: 500; margin-left: 2px;">{{ SUBTREND_DATA[SUBTREND_KEY]["items"]|join(", ") }}</div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+{%- endmacro %}

@@ -1,0 +1,306 @@
+html {
+    font-family: 'Noto Sans', 'Arima', system-ui, -apple-system,
+        BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+    margin: 0;
+}
+
+:root {
+    /* changing these values will result in the pages overflowing out of each pdf page. The rem values are tried and tested 
+  values that consistently fit the pdf pages */
+    --ca_graph_container_height: 34.2rem;
+    --graph_card_size: 16.2rem;
+    --table_height: 46.2rem;
+    --table_border: 1px solid #a1a1a1;
+    --dmk_red: rgb(214, 56, 45);
+}
+
+.page-break {
+    page-break-before: always;
+    break-before: always;
+}
+
+#comparative_analysis_pdf_body .comparative_analysis_pdf_index_page,
+#comparative_analysis_pdf_body .comparative_analysis_pdf_graph_page {
+    padding: 1rem;
+    width: 80rem;
+}
+
+.trends_container_visible {
+    visibility: visible;
+}
+
+.trends_container_hidden {
+    visibility: hidden;
+}
+
+/* INDEX PAGE */
+.comparative_analysis_black_bar {
+    height: 5px;
+    width: 100%;
+    background-color: black;
+}
+
+.comparative_analysis_pdf_header {
+    display: flex;
+    margin: 5px 0 10px;
+    height: 3rem;
+}
+
+.thicc_header {
+    height: 4.3rem;
+}
+
+.ca_index_table {
+    width: 100%;
+    height: var(--table_height);
+}
+
+table {
+    border-collapse: collapse !important;
+}
+
+.ca_index_table.nested_table_1 {
+    /* a calculation that outputs 38rem from total height of 41rem
+  for the nested 1 table to fit the pdf page somehow */
+    height: calc(var(--table_height) * 0.9268);
+    /* border: 1px solid rgb(85, 85, 85); */
+    border-bottom: none;
+}
+
+.ca_index_table.nested_table_2 {
+    /* a calculation that outputs 3rem from total height of 41rem 
+  for the nested 2 table to fit the pdf page somehow */
+    height: calc(var(--table_height) * 0.0731);
+    overflow-y: hidden;
+    font-weight: 800;
+    /* border: 1px solid rgb(85, 85, 85); */
+}
+
+.ca_index_table.full_border {
+    border: 1px solid rgb(85, 85, 85);
+}
+
+.ca_index_table thead {
+    background: black;
+    color: white;
+    height: 3rem;
+    width: 100%;
+}
+
+.ca_index_table tbody {
+    display: block;
+    gap: 0;
+}
+
+.ca_index_table thead,
+.ca_index_table tbody tr {
+    display: table;
+    margin: 0 auto;
+    table-layout: fixed;
+}
+
+.ca_index_table th {
+    padding: 0 0.3rem;
+    font-size: 10px;
+    text-align: center;
+    text-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.ca_index_table tr {
+    font-size: 10px;
+    width: 99%;
+    padding: 0 !important;
+}
+
+.ca_index_table.nested_table_1 tr {
+    border-left: 1px solid #bebebe;
+    border-bottom: 1px solid #bebebe;
+}
+
+.major_separator_border {
+    border-bottom: 2px solid #757575 !important;
+}
+
+.no_table_padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.dark_row {
+    background-color: #e4e4e4;
+}
+
+/* .ca_index_table td.add_thick_border {
+    border-top: 1px solid #757575 !important;
+} */
+
+/* .ca_index_table td.add_border_top {
+    border-top: 1px solid #bebebe;
+} */
+
+.ca_index_table td {
+    height: 25px;
+    text-align: center;
+    padding: 0.6rem 0.6rem;
+    word-wrap: break-word;
+}
+
+/* td:not(#no_table_cell_padding) {
+    padding: 0.55rem 0.6rem;
+} */
+
+.ca_index_table td#streets_column {
+    text-align: left;
+    font-size: 8px;
+}
+
+.ca_index_table td#streets_column_no_small_font {
+    text-align: left;
+}
+
+td.add_border_left + td.add_border_left {
+    border-left: 1px solid #bebebe;
+}
+
+.final_row_border {
+    border-bottom: 1px solid #bebebe;
+}
+
+td.no_cell_border, tr.no_cell_border {
+    border-bottom-style: none !important;
+}
+
+.increased_line_height * {
+    line-height: 200%;
+}
+
+/*  */
+/*  */
+/* GRAPH PAGE */
+.ca_graph_container {
+    height: var(--ca_graph_container_height);
+}
+
+.ca_graph_component {
+    min-height: var(--graph_card_size);
+    /* width: calc(var(--graph_card_size) + 0.8rem); */
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.ca_graph_component_blue_bg {
+    background-color: #dcf0f5;
+}
+
+.ca_graph_component_pink_bg {
+    background-color: #f8c9c9;
+}
+
+.ca_graph_component_indigo_bg {
+    background-color: #dfcff0;
+}
+
+.ca_graph_component_green_bg {
+    background-color: #c1f5c6;
+}
+
+.ca_graph_component .ca_graph_component_year_box {
+    position: absolute;
+    left: 40%;
+    top: -0.5rem;
+    height: 2rem;
+    width: 4rem;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    display: grid;
+    place-content: center;
+}
+/*  */
+/*  */
+/*  */
+
+.background_dmk_red {
+    background-color: var(--dmk_red);
+}
+
+.text_shadow_white {
+    text-shadow: 1px 1px 1px white; 
+}
+
+.threshold_text_safe {
+    color: #0e9103;
+}
+
+.threshold_text_favorable {
+    color: #52e263;
+}
+
+.threshold_text_difficult {
+    color: rgb(214, 56, 45);
+}
+
+.threshold_text_battlegrounds {
+    color: orange;
+}
+
+.background_white_text_black {
+    background-color: white;
+    color: black;
+}
+
+.bg_grey {
+    background-color: lightgrey; 
+}
+
+.bg_black {
+    background-color: black; 
+}
+
+.graph_item_border_radius {
+    border-radius: 15px 0px 15px 0px; 
+}
+
+.year_box_light {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 3px 1px lightgrey;
+    transform: scale(1.2);
+}
+
+.year_box_dark {
+    background-color: black;
+    color: white;
+}
+
+.year_box_divider_light {
+    background-color: grey; 
+}
+
+.year_box_divider_dark {
+    background-color: black; 
+}
+
+/* this enables background graphics in print preview */
+* {
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+    print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
+}
+
+@media print {
+    @page {
+        /* size: landscape; */
+        size: A4 landscape;
+        margin: 0 !important;
+    }
+}

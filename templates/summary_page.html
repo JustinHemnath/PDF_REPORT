@@ -1,0 +1,83 @@
+{% import 'extra_components/header_template.html' as Header %}
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--It is necessary to use the UTF-8 encoding with plotly graphics to get e.g. negative signs to render correctly -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" type="text/css" href="assets/css1.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css2.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css3.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css4.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="comparative_analysis_pdf_body">
+            {% for summary_page_obj in summary_data_pages %}
+            <div class="comparative_analysis_pdf_index_page page-break">
+                {{ Header.render(PAGE_NO=summary_page_obj["page_number"], METADATA=METADATA, GRAPH_TITLES=none, TOTAL_PAGES=total_pages, HIERARCHY_ITEM_DATA=none) }}
+
+                <p style="text-align: center; font-weight: 800">{{ METADATA["summary_header"] }}</p>
+                <table class="ca_index_table nested_table_1 add_bottom_borders full_border">
+                    <thead>
+                        <th colspan="1">{{ METADATA["T"]["s_no"] }}</th>
+                        <th colspan="2">{{ METADATA["T"]["lb_name"] }}</th>
+                        <th colspan="1">{{ METADATA["T"]["lb_type"] }}</th>
+                        {% if METADATA["COMPARE_TYPE"] == "ward_vp" %}
+                            <th colspan="5">{{ METADATA["T"]["ward_vp_summary_column_concatenated"] }}</th>
+                        {% else %}
+                            <th colspan="4">{{ METADATA["T"]["booth_no"] }}</th>
+                        {% endif %}
+                        <th colspan="1">{{ METADATA["T"]["booth_count"] }}</th>
+                    </thead>
+                    <tbody>
+                        {% for summary_item in summary_page_obj["page_data"]["page_data"] %}
+                        <tr style="color: black" class="{{ ('dark_row' if summary_item['row_theme'] else '') + (' final_row_border' if loop.last else '') }}">
+                            <td colspan="1">{{ summary_item["s_no"] }}</td>
+                            <td colspan="2">{{ summary_item["lb_name"] }}</td>
+                            <td colspan="1">{{ summary_item["lb_type"] }}</td>
+                            {% if METADATA["COMPARE_TYPE"] == "ward_vp" %}
+                            <td colspan="5">
+                                <div style="display: flex; flex-wrap: wrap; gap: 3px; ">
+                                    {% for ward_item in summary_item["ward_vp"] %}
+                                        <p style="text-wrap: wrap;">
+                                           <span style="font-weight: 700; margin-right: 3px;">{{ loop.index }}. </span>
+                                           <span style="margin: 0 3px; font-weight: 700;">{{ ward_item[0] }}</span> 
+                                           <span> - [{{ ward_item[1] }}] - </span>
+                                           <span style="font-weight: 700;">({{ ward_item[2] }})</span>
+                                           <span style="margin-right: 3px;">{{ ". " if loop.last else ", " }}</span>
+                                        </p>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                            {% else %}
+                                <td colspan="4" id="streets_column">{{ summary_item["booth_list"]|join(", ") }}</td>
+                            {% endif %}
+                            <td colspan="1">{{ summary_item["booth_count"] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <table class="ca_index_table nested_table_2 full_border">
+                    <tbody>
+                        <tr style="color: black">
+                            <td colspan="7" style="font-size: 11px">{{ METADATA["T"]["index_page_table_total_label_for_booth"] }}</td>
+                            <td colspan="1">{{ METADATA["TOTAL_BOOTHS"] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

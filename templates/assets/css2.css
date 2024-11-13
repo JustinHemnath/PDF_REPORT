@@ -1,0 +1,17 @@
+.comparative_analysis_pdf_selection_page_div {
+  display: flex;
+  display: -webkit-box !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 25rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px 1px lightgrey;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.ca_reportpdf_dropdown .mantine-Select-wrapper {
+  width: 22rem !important;
+}

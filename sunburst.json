@@ -1,0 +1,82 @@
+[
+  {
+    "type": "local_body",
+    "rank": 1,
+    "value": 17
+  },
+  {
+    "type": "local_body",
+    "rank": 2,
+    "value": 3
+  },
+  {
+    "type": "local_body",
+    "rank": 3,
+    "value": 0
+  },
+  {
+    "type": "local_body",
+    "rank": 4,
+    "value": 0
+  },
+  {
+    "type": "onrium",
+    "rank": 1,
+    "value": 23
+  },
+  {
+    "type": "onrium",
+    "rank": 2,
+    "value": 1
+  },
+  {
+    "type": "onrium",
+    "rank": 3,
+    "value": 0
+  },
+  {
+    "type": "onrium",
+    "rank": 4,
+    "value": 0
+  },
+  {
+    "type": "paguthi",
+    "rank": 1,
+    "value": 4
+  },
+  {
+    "type": "paguthi",
+    "rank": 2,
+    "value": 1
+  },
+  {
+    "type": "paguthi",
+    "rank": 3,
+    "value": 0
+  },
+  {
+    "type": "paguthi",
+    "rank": 4,
+    "value": 0
+  },
+  {
+    "type": "nagaratchi",
+    "rank": 1,
+    "value": 3
+  },
+  {
+    "type": "nagaratchi",
+    "rank": 2,
+    "value": 0
+  },
+  {
+    "type": "nagaratchi",
+    "rank": 3,
+    "value": 0
+  },
+  {
+    "type": "nagaratchi",
+    "rank": 4,
+    "value": 0
+  }
+]

@@ -1,0 +1,35 @@
+{% import 'extra_components/subtrend_icon.html' as SubTrendIcon %} 
+
+{% macro render(YEAR=none, SUBTREND=none, OR_MATCHING_YEAR=none) -%} 
+    <div
+        style="
+            position: absolute;
+            top: -1rem;
+            left: 43%;
+            height: 1rem;
+            border-radius: 5px;
+            padding: 3px 5px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 20;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+        "
+        class="{{ ' year_box_light ' if OR_MATCHING_YEAR == YEAR else ' year_box_dark '}}"
+    >   
+        {% if OR_MATCHING_YEAR == YEAR %}
+            <div style="font-weight: 800; text-decoration: underline;">{{ YEAR }}</div>
+        {% else %}
+            <div>{{ YEAR }}</div>
+        {% endif %}
+
+        <div style="height: 90%; width: 1px; margin: 0 3px;" class="{{ ' year_box_divider_dark ' if OR_MATCHING_YEAR == YEAR else ' year_box_divider_light ' }}"></div>
+
+        {# threshold icon #} 
+        {% if SUBTREND %}
+            {{ SubTrendIcon.render(SUBTREND=SUBTREND, YEAR=none, IS_STROKE_WHITE_TRUE=False, SHOW_BRACKETS=False) }}
+        {% endif %}
+    </div>
+{%- endmacro %}
