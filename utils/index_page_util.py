@@ -12,6 +12,7 @@ from .report_pdf_constants import (
     COLORS,
     PARTY_WISE_COLORS,
     dmk_red_color,
+    STATUS
 )
 import plotly.express as px
 import pandas as pd
@@ -135,6 +136,7 @@ def merge_index_table_rows(index_table_data: list, compare_type) -> List:
                                     index_item["trend"]: {
                                         "meta": {
                                             "total_booths": index_item["trend_wise_booth_count"],
+                                            "status": get_status(trend=index_item["trend"])
                                         },
                                         "data": [
                                             *new_page_data.get(index_item["lb_name"], {}).get("data", {}).get(index_item[compare_type], {}).get("data", {}).get(index_item["trend"], {}).get("data", []),
@@ -558,4 +560,36 @@ def format_ranges(nums, should_sort: bool):
         ranges.append(f"{start}-{end}" if end > start+1 else f"{start},{end}")
  
     return ranges
+
+
+def get_status(trend) -> str:
+    status = None
+    NUM_OF_YEARS = len(trend)
+
+    loss_count = 0
+
+    for i in trend:
+        if i == "L":
+            loss_count += 1
+
+    if NUM_OF_YEARS == 2:
+    # if years selected is 2
+        if loss_count == 0:
+            status = STATUS.WIN
+        elif loss_count == 1:
+            status = STATUS.GAVANAM_THEVAI
+        else:
+            status = STATUS.LOSS
+    else:
+        # if years selected are 3 or 4
+        if loss_count == 0:
+            status = STATUS.WIN
+        elif loss_count == 1:
+            status = STATUS.GAVANAM_THEVAI
+        elif loss_count > 1 and loss_count < NUM_OF_YEARS:
+            status = STATUS.ATHIGA_GAVANAM_THEVAI
+        else:
+            status = STATUS.LOSS
+
+    return status
 

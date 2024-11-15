@@ -63,7 +63,7 @@ res = model_data(
     flags_list, response_data, payload, translation_data["ta"], total_lb_list=lb_val_dict[str(223)]
 )
 
-data = res["graph_data_pages_list"]["graph_data_pages_list"]
+data = res
 
-with open("modelled_data.json", "w", encoding="utf-8") as f:
+with open("modelled_data2.json", "w", encoding="utf-8") as f:
     f.write(json.dumps(data, ensure_ascii=False))
