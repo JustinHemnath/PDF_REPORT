@@ -61,7 +61,7 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
     flags=flags_list
     
     SUMMARY_ITEMS_PER_PAGE = 5 if compare_type in [COMPARE_TYPE.WARD] else 12
-    INDEX_ITEMS_PER_PAGE = 15 if compare_type in [COMPARE_TYPE.WARD] else 12
+    INDEX_ITEMS_PER_PAGE = 13
     APPENDIX_ITEMS_PER_PAGE = 13
     CANDIDATES_ITEMS_PER_PAGE = 18 if len(YEARS_LIST) == 2 else 13
 
@@ -119,7 +119,8 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
             TABLE_KEY_TO_LOOKUP=TABLE_KEY_TO_LOOKUP,
             should_sort=False,
             is_index_table=True,
-            compare_type=compare_type
+            compare_type=compare_type,
+            translation_data=translation_data
         )
 
     # GET GRAPH PAGE DATA
@@ -141,7 +142,8 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
         TABLE_KEY_TO_LOOKUP=BOOTH_COUNT_KEY,
         should_sort=False,
         is_index_table=False,
-        compare_type=compare_type
+        compare_type=compare_type,
+        translation_data=translation_data
     )
 
 
@@ -175,14 +177,15 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
             TABLE_KEY_TO_LOOKUP=TABLE_KEY_TO_LOOKUP,
             should_sort=False,
             is_index_table=True,
-            compare_type=compare_type
+            compare_type=compare_type,
+            translation_data=translation_data
         )
 
         # create dummy chapter separation page obj for adding page number for chapter separation page
         chapter_separation_pages = [get_page_obj("", None)]
 
         # adds individual lb wise index data to each lb wise graph data 
-        graph_data_pages = add_lb_index_data_to_graph_data(index_data_pages=filtered_index_data_pages, graph_data_pages=graph_data_pages, compare_type=compare_type, INDEX_ITEMS_PER_PAGE=INDEX_ITEMS_PER_PAGE)
+        graph_data_pages = add_lb_index_data_to_graph_data(index_data_pages=filtered_index_data_pages, graph_data_pages=graph_data_pages, compare_type=compare_type, INDEX_ITEMS_PER_PAGE=INDEX_ITEMS_PER_PAGE, translation_data=translation_data)
 
         return [
             chapter_separation_pages,
@@ -222,7 +225,8 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
             TABLE_KEY_TO_LOOKUP=TABLE_KEY_TO_LOOKUP,
             should_sort=True,
             is_index_table=False,
-            compare_type=compare_type
+            compare_type=compare_type,
+            translation_data=translation_data
         )
 
     # 
@@ -363,12 +367,18 @@ def apply_page_numbers(summary_data, parent_index_data, graph_data_pages_list, a
             item["page_number"] = PAGE_NO
             PAGE_NO += 1
 
-        # for graph page
+        # for graph pages where each object is an lb 
         for lb_wise_obj in graph_item_tuple[2]:
+            # for lb separation page
+            lb_wise_obj["lb_separation_page"]["page_number"] = PAGE_NO
+            PAGE_NO += 1
+            
+            # for lb index pages
             for index_item in lb_wise_obj["lb_index_data"]:
                 index_item["page_number"] = PAGE_NO
                 PAGE_NO += 1
 
+            # for lb graph pages
             for graph_item in lb_wise_obj["lb_wise_graph_data"]:
                 graph_item["page_number"] = PAGE_NO
                 PAGE_NO += 1
@@ -433,7 +443,7 @@ def get_missing_booth_info(booths_in_db, ac_total_booths, total_lb_list, payload
 
 
 ## adds individual lb wise index data to each lb wise graph data 
-def add_lb_index_data_to_graph_data(index_data_pages, graph_data_pages, compare_type, INDEX_ITEMS_PER_PAGE) -> Dict:
+def add_lb_index_data_to_graph_data(index_data_pages, graph_data_pages, compare_type, INDEX_ITEMS_PER_PAGE, translation_data) -> Dict:
     df = pd.DataFrame(index_data_pages)
 
     for graph_item in graph_data_pages:
@@ -449,7 +459,8 @@ def add_lb_index_data_to_graph_data(index_data_pages, graph_data_pages, compare_
             TABLE_KEY_TO_LOOKUP="booth_count",
             should_sort=False,
             is_index_table=True,
-            compare_type=compare_type
+            compare_type=compare_type,
+            translation_data=translation_data
         )
 
         graph_item["lb_index_data"] = lb_index_data_pages
