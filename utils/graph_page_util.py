@@ -151,10 +151,13 @@ def group_graph_data(
                 ## check for local body equality if compare type is local body
                 if hierarchy_pair_list[0]["parent_hierarchy_name"] != current_hierarchy_item["parent_hierarchy_name"]:
                     MAIN_GRAPH_DATA[-1]["lb_wise_graph_data"].append(get_page_obj("", hierarchy_pair_list))
+                    MAIN_GRAPH_DATA.append(get_new_lb_graph_data_item(lb_name=current_hierarchy_item["parent_hierarchy_name"]))
                     hierarchy_pair_list = []
                     hierarchy_pair_list.append(current_hierarchy_item)
-                    MAIN_GRAPH_DATA.append(get_new_lb_graph_data_item(lb_name=current_hierarchy_item["parent_hierarchy_name"]))
-                    MAIN_GRAPH_DATA[-1]["lb_wise_graph_data"].append(get_page_obj("", hierarchy_pair_list))
+
+                    if parent_data_length == idx + 1:
+                        MAIN_GRAPH_DATA[-1]["lb_wise_graph_data"].append(get_page_obj("", hierarchy_pair_list))
+                        hierarchy_pair_list = []
                 
                 else:
                     ## check for locality/wardvp equality if compare type is locality or ward_vp
@@ -401,21 +404,24 @@ def get_subtrendwise_total_booth_count_from_index_data(index_data: List, compare
 
 
 
-def convert_graph_data_into_fig(graph_data):
+def convert_graph_data_into_fig(graph_data, translation_data: Dict):
     graph_color = "#e3e2e1"
 
     x_axis = graph_data["x"]
     y_axis = graph_data["y"]
 
-    df = pd.DataFrame({"parties": x_axis, "votes": y_axis})
-    figure = px.bar(df, x="parties", y="votes", text_auto=True)
+    parties = translation_data["parties"]
+    votes = translation_data["votes"]
+
+    df = pd.DataFrame({parties: x_axis, votes: y_axis})
+    figure = px.bar(df, x=parties, y=votes, text_auto=True)
 
     figure.update_layout(
         {
             "paper_bgcolor": graph_color,
             "plot_bgcolor": graph_color,
             "font": {
-                "size": 7,
+                "size": 9,
                 "family": "'Inter', 'sans serif'",
             },
             "showlegend": False,
@@ -425,7 +431,7 @@ def convert_graph_data_into_fig(graph_data):
                 "b": 0,
                 "l": 0,
                 "r": 0,
-                "t": 20,
+                "t": 10,
             },
         },
     )
@@ -437,10 +443,9 @@ def convert_graph_data_into_fig(graph_data):
 
     figure.update_traces(marker_color=marker_color, textposition="auto")
 
-    return None
-    # return figure.to_html(
-    #     full_html=False, config={"displayModeBar": False}, include_plotlyjs=False
-    # )
+    return figure.to_html(
+        full_html=False, config={"displayModeBar": False}, include_plotlyjs=False
+    )
 
 
 def get_page_obj(pg_no, page_data) -> Dict:
@@ -480,7 +485,7 @@ def get_modifed_hierarchy_item(
         TREND_LIST = list(created_header_items["header_data"]["trend"])
         new_year_data = {
             **year_value,
-            "fig": convert_graph_data_into_fig(graph_data=year_value["graph_data"]),
+            "fig": convert_graph_data_into_fig(graph_data=year_value["graph_data"], translation_data=translation_data),
             "year": year,
             "trend": TREND_LIST[index],
         }
@@ -661,7 +666,7 @@ def get_graph_item_headers(
         # th_2 = "({})".format(trend_count) if trend else ""
         # th_3 = "- ({})".format(header_data["locality_count"]) if trend else ""
         bh_2 = "{} {}: {}".format(
-            translation_data["ward_vp"], translation_data["total_parts"], header_data["booth_count"]
+            translation_data["local_body"], translation_data["total_parts"], header_data["booth_count"]
         )
         bottom_headers = [bh_1, bh_2]
         label_value_title = [translation_data["booth_no_short"], translation_data["label_value_title"]]
@@ -869,5 +874,6 @@ def get_new_lb_graph_data_item(lb_name) -> Dict:
     return {
         "lb_index_data": None, 
         "lb_name": lb_name, 
-        "lb_wise_graph_data": [],
+        "lb_wise_graph_data": [], 
+        "lb_separation_page": get_page_obj("", None),
         }

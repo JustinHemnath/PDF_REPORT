@@ -37,6 +37,7 @@ def group_table_pages_data(
     should_sort: bool,
     is_index_table: bool,
     compare_type: str,
+    translation_data: Dict
 ):
     if len(response_data) == 0:
         return []
@@ -104,11 +105,11 @@ def group_table_pages_data(
     # does grouping of the index data items in order to group and merge the rows as per lb, locality/ward_vp wise
     # should do only for the index table, not for summary or appendix table
     if is_index_table and should_set_row_style:
-        final_page_data = merge_index_table_rows(final_page_data, compare_type)
+        final_page_data = merge_index_table_rows(final_page_data, compare_type, translation_data)
 
     return final_page_data
 
-def merge_index_table_rows(index_table_data: list, compare_type) -> List:
+def merge_index_table_rows(index_table_data: list, compare_type, translation_data: Dict) -> List:
     grouped_index_table_data = []
 
     if compare_type in [COMPARE_TYPE.WARD]:
@@ -136,7 +137,7 @@ def merge_index_table_rows(index_table_data: list, compare_type) -> List:
                                     index_item["trend"]: {
                                         "meta": {
                                             "total_booths": index_item["trend_wise_booth_count"],
-                                            "status": get_status(trend=index_item["trend"])
+                                            "status": translation_data[get_status(trend=index_item["trend"])]
                                         },
                                         "data": [
                                             *new_page_data.get(index_item["lb_name"], {}).get("data", {}).get(index_item[compare_type], {}).get("data", {}).get(index_item["trend"], {}).get("data", []),
@@ -561,7 +562,6 @@ def format_ranges(nums, should_sort: bool):
  
     return ranges
 
-
 def get_status(trend) -> str:
     status = None
     NUM_OF_YEARS = len(trend)
@@ -592,4 +592,3 @@ def get_status(trend) -> str:
             status = STATUS.LOSS
 
     return status
-
