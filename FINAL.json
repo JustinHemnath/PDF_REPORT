@@ -1,0 +1,1937 @@
+[
+    {
+        "page_number": 24,
+        "page_data": {
+            "total_count_per_table": 18,
+            "page_data": [
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "அய்யனரர்குளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "126"
+                    ],
+                    "booth_list_expanded": [
+                        126
+                    ],
+                    "booth_count": 1,
+                    "trend": "WL",
+                    "sub_trend": "FD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "3 - 4",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 2,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "அய்யனரர்குளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "127"
+                    ],
+                    "booth_list_expanded": [
+                        127
+                    ],
+                    "booth_count": 1,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "5 - 6",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 2,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கடங்கநேரி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "101",
+                        "104",
+                        "106"
+                    ],
+                    "booth_list_expanded": [
+                        101,
+                        104,
+                        106
+                    ],
+                    "booth_count": 3,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "7 - 9",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 4
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கடங்கநேரி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "103"
+                    ],
+                    "booth_list_expanded": [
+                        103
+                    ],
+                    "booth_count": 1,
+                    "trend": "WL",
+                    "sub_trend": "FD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "10 - 11",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 4
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கடங்கநேரி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "107"
+                    ],
+                    "booth_list_expanded": [
+                        107
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "12 - 13",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கடங்கநேரி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "100"
+                    ],
+                    "booth_list_expanded": [
+                        100
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "FF",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "14 - 15",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கடங்கநேரி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "99",
+                        "102"
+                    ],
+                    "booth_list_expanded": [
+                        99,
+                        102
+                    ],
+                    "booth_count": 2,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "16 - 17",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "காடுவெட்டி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "105"
+                    ],
+                    "booth_list_expanded": [
+                        105
+                    ],
+                    "booth_count": 1,
+                    "trend": "LW",
+                    "sub_trend": "DS",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "18 - 19",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 1,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "காவலாகுறிச்சி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "95",
+                        "98"
+                    ],
+                    "booth_list_expanded": [
+                        95,
+                        98
+                    ],
+                    "booth_count": 2,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "20 - 21",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "காவலாகுறிச்சி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "96,97"
+                    ],
+                    "booth_list_expanded": [
+                        96,
+                        97
+                    ],
+                    "booth_count": 2,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 2,
+                    "s_no": 1,
+                    "page_no_list": "22 - 23",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "காவலாகுறிச்சி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "94"
+                    ],
+                    "booth_list_expanded": [
+                        94
+                    ],
+                    "booth_count": 1,
+                    "trend": "LW",
+                    "sub_trend": "DS",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "24 - 25",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கிடாரகுளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "88"
+                    ],
+                    "booth_list_expanded": [
+                        88
+                    ],
+                    "booth_count": 1,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "26 - 27",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 2,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "கிடாரகுளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "87"
+                    ],
+                    "booth_list_expanded": [
+                        87
+                    ],
+                    "booth_count": 1,
+                    "trend": "LW",
+                    "sub_trend": "DS",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "28 - 29",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 2,
+                    "trend_wise_booth_count": 1
+                }
+            ],
+            "grouped_page_data": {
+                "ஆலங்குளம் தெற்கு": {
+                    "meta": {
+                        "lb_type": "ஒன்றியம்",
+                        "total_booths": 56,
+                        "s_no": 1
+                    },
+                    "data": {
+                        "அய்யனரர்குளம்": {
+                            "meta": {
+                                "total_booths": 2,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "அய்யனரர்குளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "126"
+                                            ],
+                                            "booth_list_expanded": [
+                                                126
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WL",
+                                            "sub_trend": "FD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "27",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 2,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "அய்யனரர்குளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "127"
+                                            ],
+                                            "booth_list_expanded": [
+                                                127
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "28",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 2,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "கடங்கநேரி": {
+                            "meta": {
+                                "total_booths": 8,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 4,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கடங்கநேரி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "101",
+                                                "104",
+                                                "106"
+                                            ],
+                                            "booth_list_expanded": [
+                                                101,
+                                                104,
+                                                106
+                                            ],
+                                            "booth_count": 3,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "29 - 30",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 4
+                                        },
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கடங்கநேரி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "103"
+                                            ],
+                                            "booth_list_expanded": [
+                                                103
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WL",
+                                            "sub_trend": "FD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "31",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 4
+                                        }
+                                    ]
+                                },
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கடங்கநேரி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "107"
+                                            ],
+                                            "booth_list_expanded": [
+                                                107
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "32",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 2
+                                        },
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கடங்கநேரி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "100"
+                                            ],
+                                            "booth_list_expanded": [
+                                                100
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "FF",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "33",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கடங்கநேரி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "99",
+                                                "102"
+                                            ],
+                                            "booth_list_expanded": [
+                                                99,
+                                                102
+                                            ],
+                                            "booth_count": 2,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "34",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "காடுவெட்டி": {
+                            "meta": {
+                                "total_booths": 1,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "LW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "காடுவெட்டி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "105"
+                                            ],
+                                            "booth_list_expanded": [
+                                                105
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LW",
+                                            "sub_trend": "DS",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "35",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 1,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "காவலாகுறிச்சி": {
+                            "meta": {
+                                "total_booths": 5,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "காவலாகுறிச்சி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "95",
+                                                "98"
+                                            ],
+                                            "booth_list_expanded": [
+                                                95,
+                                                98
+                                            ],
+                                            "booth_count": 2,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "36",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "காவலாகுறிச்சி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "96,97"
+                                            ],
+                                            "booth_list_expanded": [
+                                                96,
+                                                97
+                                            ],
+                                            "booth_count": 2,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 2,
+                                            "s_no": 1,
+                                            "page_no_list": "37",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                },
+                                "LW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "காவலாகுறிச்சி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "94"
+                                            ],
+                                            "booth_list_expanded": [
+                                                94
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LW",
+                                            "sub_trend": "DS",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "38",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "கிடாரகுளம்": {
+                            "meta": {
+                                "total_booths": 2,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கிடாரகுளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "88"
+                                            ],
+                                            "booth_list_expanded": [
+                                                88
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "39",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 2,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                },
+                                "LW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "கிடாரகுளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "87"
+                                            ],
+                                            "booth_list_expanded": [
+                                                87
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LW",
+                                            "sub_trend": "DS",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "40",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 2,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "page_number": 25,
+        "page_data": {
+            "total_count_per_table": 21,
+            "page_data": [
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "குறிப்பன்குளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "72,73"
+                    ],
+                    "booth_list_expanded": [
+                        72,
+                        73
+                    ],
+                    "booth_count": 2,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "30 - 31",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 4,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "குறிப்பன்குளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "75"
+                    ],
+                    "booth_list_expanded": [
+                        75
+                    ],
+                    "booth_count": 1,
+                    "trend": "LW",
+                    "sub_trend": "BS",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "32 - 33",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 4,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "குறிப்பன்குளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "74"
+                    ],
+                    "booth_list_expanded": [
+                        74
+                    ],
+                    "booth_count": 1,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "34 - 35",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 4,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "சிவலார்குளம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "115-117"
+                    ],
+                    "booth_list_expanded": [
+                        115,
+                        116,
+                        117
+                    ],
+                    "booth_count": 3,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "36 - 38",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 3,
+                    "trend_wise_booth_count": 3
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "சுப்பையாபுரம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "108"
+                    ],
+                    "booth_list_expanded": [
+                        108
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "39 - 40",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 1,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நல்லூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "118-120",
+                        "125"
+                    ],
+                    "booth_list_expanded": [
+                        118,
+                        119,
+                        120,
+                        125
+                    ],
+                    "booth_count": 4,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "41 - 43",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 4
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நல்லூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "122"
+                    ],
+                    "booth_list_expanded": [
+                        122
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 3,
+                    "s_no": 1,
+                    "page_no_list": "44 - 45",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 3
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நல்லூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "123"
+                    ],
+                    "booth_list_expanded": [
+                        123
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "FF",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "46 - 47",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 3
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நல்லூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "121"
+                    ],
+                    "booth_list_expanded": [
+                        121
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "FS",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "48 - 49",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 3
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நல்லூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "124"
+                    ],
+                    "booth_list_expanded": [
+                        124
+                    ],
+                    "booth_count": 1,
+                    "trend": "LL",
+                    "sub_trend": "BD",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "50 - 51",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நாரணபுரம்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "79,80",
+                        "86"
+                    ],
+                    "booth_list_expanded": [
+                        79,
+                        80,
+                        86
+                    ],
+                    "booth_count": 3,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "52 - 54",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 3,
+                    "trend_wise_booth_count": 3
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நெட்டூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "91"
+                    ],
+                    "booth_list_expanded": [
+                        91
+                    ],
+                    "booth_count": 1,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "55 - 56",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நெட்டூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "89"
+                    ],
+                    "booth_list_expanded": [
+                        89
+                    ],
+                    "booth_count": 1,
+                    "trend": "WL",
+                    "sub_trend": "FD",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "57 - 58",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 2
+                }
+            ],
+            "grouped_page_data": {
+                "ஆலங்குளம் தெற்கு": {
+                    "meta": {
+                        "lb_type": "ஒன்றியம்",
+                        "total_booths": 56,
+                        "s_no": 1
+                    },
+                    "data": {
+                        "குறிப்பன்குளம்": {
+                            "meta": {
+                                "total_booths": 4,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "குறிப்பன்குளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "72,73"
+                                            ],
+                                            "booth_list_expanded": [
+                                                72,
+                                                73
+                                            ],
+                                            "booth_count": 2,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "41",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 4,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                },
+                                "LW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "குறிப்பன்குளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "75"
+                                            ],
+                                            "booth_list_expanded": [
+                                                75
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LW",
+                                            "sub_trend": "BS",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "42",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 4,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "குறிப்பன்குளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "74"
+                                            ],
+                                            "booth_list_expanded": [
+                                                74
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "43",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 4,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "சிவலார்குளம்": {
+                            "meta": {
+                                "total_booths": 3,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 3,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "சிவலார்குளம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "115-117"
+                                            ],
+                                            "booth_list_expanded": [
+                                                115,
+                                                116,
+                                                117
+                                            ],
+                                            "booth_count": 3,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "44 - 45",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 3,
+                                            "trend_wise_booth_count": 3
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "சுப்பையாபுரம்": {
+                            "meta": {
+                                "total_booths": 1,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "சுப்பையாபுரம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "108"
+                                            ],
+                                            "booth_list_expanded": [
+                                                108
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "46",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 1,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "நல்லூர்": {
+                            "meta": {
+                                "total_booths": 8,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 4,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நல்லூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "118-120",
+                                                "125"
+                                            ],
+                                            "booth_list_expanded": [
+                                                118,
+                                                119,
+                                                120,
+                                                125
+                                            ],
+                                            "booth_count": 4,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "47 - 48",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 4
+                                        }
+                                    ]
+                                },
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 3,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நல்லூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "122"
+                                            ],
+                                            "booth_list_expanded": [
+                                                122
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 3,
+                                            "s_no": 1,
+                                            "page_no_list": "49",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 3
+                                        },
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நல்லூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "123"
+                                            ],
+                                            "booth_list_expanded": [
+                                                123
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "FF",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "50",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 3
+                                        },
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நல்லூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "121"
+                                            ],
+                                            "booth_list_expanded": [
+                                                121
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "FS",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "51",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 3
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நல்லூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "124"
+                                            ],
+                                            "booth_list_expanded": [
+                                                124
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LL",
+                                            "sub_trend": "BD",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "52",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "நாரணபுரம்": {
+                            "meta": {
+                                "total_booths": 3,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 3,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நாரணபுரம்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "79,80",
+                                                "86"
+                                            ],
+                                            "booth_list_expanded": [
+                                                79,
+                                                80,
+                                                86
+                                            ],
+                                            "booth_count": 3,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "53 - 54",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 3,
+                                            "trend_wise_booth_count": 3
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "நெட்டூர்": {
+                            "meta": {
+                                "total_booths": 5,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நெட்டூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "91"
+                                            ],
+                                            "booth_list_expanded": [
+                                                91
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "55",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 2
+                                        },
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நெட்டூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "89"
+                                            ],
+                                            "booth_list_expanded": [
+                                                89
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WL",
+                                            "sub_trend": "FD",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "56",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "page_number": 26,
+        "page_data": {
+            "total_count_per_table": 17,
+            "page_data": [
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நெட்டூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "92,93"
+                    ],
+                    "booth_list_expanded": [
+                        92,
+                        93
+                    ],
+                    "booth_count": 2,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "59 - 60",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 2
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "நெட்டூர்",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "90"
+                    ],
+                    "booth_list_expanded": [
+                        90
+                    ],
+                    "booth_count": 1,
+                    "trend": "LW",
+                    "sub_trend": "DS",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "61 - 62",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 5,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாயமான்குரிச்சி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "76",
+                        "81-85"
+                    ],
+                    "booth_list_expanded": [
+                        76,
+                        81,
+                        82,
+                        83,
+                        84,
+                        85
+                    ],
+                    "booth_count": 6,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "63 - 66",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 6
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாயமான்குரிச்சி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "78"
+                    ],
+                    "booth_list_expanded": [
+                        78
+                    ],
+                    "booth_count": 1,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 4,
+                    "s_no": 1,
+                    "page_no_list": "67 - 68",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாயமான்குரிச்சி",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "77"
+                    ],
+                    "booth_list_expanded": [
+                        77
+                    ],
+                    "booth_count": 1,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 5,
+                    "s_no": 1,
+                    "page_no_list": "69 - 70",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 8,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாறாந்தை",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "112-114"
+                    ],
+                    "booth_list_expanded": [
+                        112,
+                        113,
+                        114
+                    ],
+                    "booth_count": 3,
+                    "trend": "WW",
+                    "sub_trend": "SS",
+                    "page_no": 5,
+                    "s_no": 1,
+                    "page_no_list": "71 - 73",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 6,
+                    "trend_wise_booth_count": 3
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாறாந்தை",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "111"
+                    ],
+                    "booth_list_expanded": [
+                        111
+                    ],
+                    "booth_count": 1,
+                    "trend": "WL",
+                    "sub_trend": "SD",
+                    "page_no": 5,
+                    "s_no": 1,
+                    "page_no_list": "74 - 75",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 6,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாறாந்தை",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "110"
+                    ],
+                    "booth_list_expanded": [
+                        110
+                    ],
+                    "booth_count": 1,
+                    "trend": "LW",
+                    "sub_trend": "DS",
+                    "page_no": 5,
+                    "s_no": 1,
+                    "page_no_list": "76 - 77",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 6,
+                    "trend_wise_booth_count": 1
+                },
+                {
+                    "lb_name": "ஆலங்குளம் தெற்கு",
+                    "lb_type": "ஒன்றியம்",
+                    "ward_vp": "மாறாந்தை",
+                    "ward_vp_type": "vp",
+                    "booth_list": [
+                        "109"
+                    ],
+                    "booth_list_expanded": [
+                        109
+                    ],
+                    "booth_count": 1,
+                    "trend": "LL",
+                    "sub_trend": "DD",
+                    "page_no": 5,
+                    "s_no": 1,
+                    "page_no_list": "78 - 79",
+                    "lb_wise_booth_count": 56,
+                    "ward_wise_booth_count": 6,
+                    "trend_wise_booth_count": 1
+                }
+            ],
+            "grouped_page_data": {
+                "ஆலங்குளம் தெற்கு": {
+                    "meta": {
+                        "lb_type": "ஒன்றியம்",
+                        "total_booths": 56,
+                        "s_no": 1
+                    },
+                    "data": {
+                        "நெட்டூர்": {
+                            "meta": {
+                                "total_booths": 5,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 2,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நெட்டூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "92,93"
+                                            ],
+                                            "booth_list_expanded": [
+                                                92,
+                                                93
+                                            ],
+                                            "booth_count": 2,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "57",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 2
+                                        }
+                                    ]
+                                },
+                                "LW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "நெட்டூர்",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "90"
+                                            ],
+                                            "booth_list_expanded": [
+                                                90
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LW",
+                                            "sub_trend": "DS",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "58",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 5,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "மாயமான்குரிச்சி": {
+                            "meta": {
+                                "total_booths": 8,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 6,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாயமான்குரிச்சி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "76",
+                                                "81-85"
+                                            ],
+                                            "booth_list_expanded": [
+                                                76,
+                                                81,
+                                                82,
+                                                83,
+                                                84,
+                                                85
+                                            ],
+                                            "booth_count": 6,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "59 - 61",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 6
+                                        }
+                                    ]
+                                },
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாயமான்குரிச்சி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "78"
+                                            ],
+                                            "booth_list_expanded": [
+                                                78
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 4,
+                                            "s_no": 1,
+                                            "page_no_list": "62",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாயமான்குரிச்சி",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "77"
+                                            ],
+                                            "booth_list_expanded": [
+                                                77
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 5,
+                                            "s_no": 1,
+                                            "page_no_list": "63",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 8,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "மாறாந்தை": {
+                            "meta": {
+                                "total_booths": 6,
+                                "ward_type": "vp"
+                            },
+                            "data": {
+                                "WW": {
+                                    "meta": {
+                                        "total_booths": 3,
+                                        "status": "வெற்றி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாறாந்தை",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "112-114"
+                                            ],
+                                            "booth_list_expanded": [
+                                                112,
+                                                113,
+                                                114
+                                            ],
+                                            "booth_count": 3,
+                                            "trend": "WW",
+                                            "sub_trend": "SS",
+                                            "page_no": 5,
+                                            "s_no": 1,
+                                            "page_no_list": "64 - 65",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 6,
+                                            "trend_wise_booth_count": 3
+                                        }
+                                    ]
+                                },
+                                "WL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாறாந்தை",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "111"
+                                            ],
+                                            "booth_list_expanded": [
+                                                111
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "WL",
+                                            "sub_trend": "SD",
+                                            "page_no": 5,
+                                            "s_no": 1,
+                                            "page_no_list": "66",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 6,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                },
+                                "LW": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "கவனம் தேவை"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாறாந்தை",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "110"
+                                            ],
+                                            "booth_list_expanded": [
+                                                110
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LW",
+                                            "sub_trend": "DS",
+                                            "page_no": 5,
+                                            "s_no": 1,
+                                            "page_no_list": "67",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 6,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                },
+                                "LL": {
+                                    "meta": {
+                                        "total_booths": 1,
+                                        "status": "தோல்வி"
+                                    },
+                                    "data": [
+                                        {
+                                            "lb_name": "ஆலங்குளம் தெற்கு",
+                                            "lb_type": "ஒன்றியம்",
+                                            "ward_vp": "மாறாந்தை",
+                                            "ward_vp_type": "vp",
+                                            "booth_list": [
+                                                "109"
+                                            ],
+                                            "booth_list_expanded": [
+                                                109
+                                            ],
+                                            "booth_count": 1,
+                                            "trend": "LL",
+                                            "sub_trend": "DD",
+                                            "page_no": 5,
+                                            "s_no": 1,
+                                            "page_no_list": "68 - 71",
+                                            "lb_wise_booth_count": 56,
+                                            "ward_wise_booth_count": 6,
+                                            "trend_wise_booth_count": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]

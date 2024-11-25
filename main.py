@@ -50,7 +50,8 @@ payload = {
     "flag": None,
 }
 
-flags_list = [0, 3, 4]
+# flags_list = [0, 3, 4]
+flags_list = [0]
 
 with open("ac_lb_mapping.json", "r", encoding="utf-8") as f:
     ac_lb_map = json.load(f)
@@ -63,7 +64,8 @@ res = model_data(
     flags_list, response_data, payload, translation_data["ta"], total_lb_list=lb_val_dict[str(223)]
 )
 
-data = res["graph_data_pages_list"]
+# data = res["graph_data_pages_list"]
+data = res
 
-with open("modelled_data2.json", "w", encoding="utf-8") as f:
+with open("modelled_data.json", "w", encoding="utf-8") as f:
     f.write(json.dumps(data, ensure_ascii=False))

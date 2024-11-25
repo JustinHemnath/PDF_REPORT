@@ -443,9 +443,10 @@ def convert_graph_data_into_fig(graph_data, translation_data: Dict):
 
     figure.update_traces(marker_color=marker_color, textposition="auto")
 
-    return figure.to_html(
-        full_html=False, config={"displayModeBar": False}, include_plotlyjs=False
-    )
+    return None
+    # return figure.to_html(
+    #     full_html=False, config={"displayModeBar": False}, include_plotlyjs=False
+    # )
 
 
 def get_page_obj(pg_no, page_data) -> Dict:
