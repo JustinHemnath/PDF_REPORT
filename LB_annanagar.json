@@ -1,0 +1,275 @@
+{
+    "summary_data": [
+        {
+            "s_no": 1,
+            "booth_list": [
+                "140-253"
+            ],
+            "lb_name": "அண்ணாநகர் தெற்கு பகுதி",
+            "lb_type": "பகுதி",
+            "ward_vp": [
+                "108",
+                "106",
+                "105"
+            ],
+            "booth_count": 114,
+            "page_no": 1
+        },
+        {
+            "s_no": 2,
+            "booth_list": [
+                "1-139"
+            ],
+            "lb_name": "அண்ணாநகர் வடக்கு பகுதி",
+            "lb_type": "பகுதி",
+            "ward_vp": [
+                "102",
+                "68",
+                "101",
+                "100",
+                "103"
+            ],
+            "booth_count": 139,
+            "page_no": 1
+        }
+    ],
+    "candidates_data": [],
+    "index_data": [
+        {
+            "local_body": [
+                "அண்ணாநகர் தெற்கு பகுதி",
+                "அண்ணாநகர் வடக்கு பகுதி"
+            ],
+            "lb_count": 2,
+            "trend": "WW",
+            "sub_trend": "SS",
+            "page_no": 2,
+            "s_no": 1,
+            "page_no_list": 3
+        }
+    ],
+    "header_data": [
+        {
+            "ac_no": 21,
+            "local_body": [
+                "அண்ணாநகர் தெற்கு பகுதி",
+                "அண்ணாநகர் வடக்கு பகுதி"
+            ],
+            "lb_count": 2,
+            "total_lb_count": 2,
+            "ac_booth_count": 253,
+            "ac_total_votes": 147977,
+            "trend": "WW",
+            "sub_trend": "SS"
+        }
+    ],
+    "graph_data": {
+        "அண்ணாநகர் தெற்கு பகுதி": {
+            "gender_stats": {
+                "male": 60344,
+                "female": 61630,
+                "others": 31,
+                "total": 122005,
+                "male_percentage": 49.46,
+                "female_percentage": 50.51,
+                "others_percentage": 0.03
+            },
+            "age_stats": {
+                "age_18_30": 20754,
+                "age_31_50": 57078,
+                "age_51_80": 42487,
+                "age_81+": 1323,
+                "total_count": 121642,
+                "age_18_30_percentage": 17.06,
+                "age_31_50_percentage": 46.92,
+                "age_51_80_percentage": 34.93,
+                "age_81+_percentage": 1.09
+            },
+            "lb_type": "பகுதி",
+            "trend": "WW",
+            "sub_trend": "SS",
+            "2024": {
+                "lb_name": "அண்ணாநகர் தெற்கு பகுதி",
+                "ward_vp": [
+                    "106",
+                    "105",
+                    "108",
+                    "105,108",
+                    "106,108"
+                ],
+                "ward_vp_count": 5,
+                "turnout": 54.06,
+                "margin": 22605,
+                "margin_percentage": 64.14,
+                "polled_votes": 65956,
+                "total_voters": 122005,
+                "vote_share": 53.44,
+                "vote_percentage": 44.57,
+                "trend": "W",
+                "sub_trend": "S",
+                "flag": 0,
+                "graph_data": {
+                    "x": [
+                        "DMK",
+                        "BJP",
+                        "DMDK",
+                        "NTK",
+                        "Others"
+                    ],
+                    "y": [
+                        35245,
+                        12640,
+                        9682,
+                        5279,
+                        3110
+                    ]
+                }
+            },
+            "2021": {
+                "lb_name": "அண்ணாநகர் தெற்கு பகுதி",
+                "ward_vp": [
+                    "106",
+                    "105",
+                    "108",
+                    "105,108",
+                    "106,108"
+                ],
+                "ward_vp_count": 5,
+                "turnout": 61.52,
+                "margin": 14963,
+                "margin_percentage": 40.56,
+                "polled_votes": 74001,
+                "total_voters": 120282,
+                "vote_share": 49.85,
+                "vote_percentage": 44.32,
+                "trend": "W",
+                "sub_trend": "S",
+                "flag": 0,
+                "graph_data": {
+                    "x": [
+                        "DMK",
+                        "AIADMK",
+                        "MNM",
+                        "NTK",
+                        "Others"
+                    ],
+                    "y": [
+                        36893,
+                        21930,
+                        8070,
+                        5081,
+                        2027
+                    ]
+                }
+            },
+            "page_no": 3
+        },
+        "அண்ணாநகர் வடக்கு பகுதி": {
+            "gender_stats": {
+                "male": 72868,
+                "female": 77076,
+                "others": 65,
+                "total": 150009,
+                "male_percentage": 48.58,
+                "female_percentage": 51.38,
+                "others_percentage": 0.04
+            },
+            "age_stats": {
+                "age_18_30": 25980,
+                "age_31_50": 64729,
+                "age_51_80": 57766,
+                "age_81+": 3337,
+                "total_count": 151812,
+                "age_18_30_percentage": 17.11,
+                "age_31_50_percentage": 42.64,
+                "age_51_80_percentage": 38.05,
+                "age_81+_percentage": 2.2
+            },
+            "lb_type": "பகுதி",
+            "trend": "WW",
+            "sub_trend": "SS",
+            "2024": {
+                "lb_name": "அண்ணாநகர் வடக்கு பகுதி",
+                "ward_vp": [
+                    "101",
+                    "100",
+                    "100,101",
+                    "101,102",
+                    "102",
+                    "68,102",
+                    "103",
+                    "102,103"
+                ],
+                "ward_vp_count": 8,
+                "turnout": 54.68,
+                "margin": 20157,
+                "margin_percentage": 48.81,
+                "polled_votes": 82021,
+                "total_voters": 150009,
+                "vote_share": 50.35,
+                "vote_percentage": 55.43,
+                "trend": "W",
+                "sub_trend": "S",
+                "flag": 0,
+                "graph_data": {
+                    "x": [
+                        "DMK",
+                        "BJP",
+                        "DMDK",
+                        "NTK",
+                        "Others"
+                    ],
+                    "y": [
+                        41298,
+                        21141,
+                        9978,
+                        5935,
+                        3669
+                    ]
+                }
+            },
+            "2021": {
+                "lb_name": "அண்ணாநகர் வடக்கு பகுதி",
+                "ward_vp": [
+                    "101",
+                    "100",
+                    "100,101",
+                    "101,102",
+                    "102",
+                    "68,102",
+                    "103",
+                    "102,103"
+                ],
+                "ward_vp_count": 8,
+                "turnout": 58.81,
+                "margin": 11639,
+                "margin_percentage": 27.94,
+                "polled_votes": 88444,
+                "total_voters": 150378,
+                "vote_share": 47.1,
+                "vote_percentage": 52.97,
+                "trend": "W",
+                "sub_trend": "S",
+                "flag": 4,
+                "graph_data": {
+                    "x": [
+                        "DMK",
+                        "AIADMK",
+                        "MNM",
+                        "NTK",
+                        "Others"
+                    ],
+                    "y": [
+                        41659,
+                        30020,
+                        9175,
+                        5188,
+                        2402
+                    ]
+                }
+            },
+            "page_no": 3
+        }
+    },
+    "consolidated_gender_stats": null
+}
