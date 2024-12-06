@@ -1,7 +1,8 @@
 from utils.ca_model import model_data
 import json
 
-file = "ward_alangulam.json"
+# file = "ward_alangulam.json"
+file = "AC_vik.json"
 # file = "ward_vik.json"
 
 with open(file, "r", encoding="utf-8") as f:
