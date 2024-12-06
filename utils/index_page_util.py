@@ -48,7 +48,11 @@ def group_table_pages_data(
     ## set alternating row style based on the local body name
     if should_set_row_style:
         if is_index_table:
-            page_data = add_index_row_style(response_data, should_add_booths_per_lb, compare_type)
+            # for index data, set status for each index row based on trend
+            page_data = list(map(lambda item: ({ **item, "status": translation_data[get_status(item["trend"])] }), response_data))
+            
+            # adds styling for index data 
+            page_data = add_index_row_style(page_data, should_add_booths_per_lb, compare_type)
         else:
             page_data = add_other_table_row_style(
                 response_data, should_add_booths_per_lb
@@ -110,8 +114,6 @@ def group_table_pages_data(
     return final_page_data
 
 def merge_index_table_rows(index_table_data: list, compare_type, translation_data: Dict) -> List:
-    grouped_index_table_data = []
-
     if compare_type in [COMPARE_TYPE.WARD]:
         for index_page_obj in index_table_data:
             new_page_data = dict() 
@@ -134,15 +136,20 @@ def merge_index_table_rows(index_table_data: list, compare_type, translation_dat
                                 },
                                 "data": {
                                     **new_page_data.get(index_item["lb_name"], {}).get("data", {}).get(index_item[compare_type], {}).get("data", {}),
-                                    index_item["trend"]: {
-                                        "meta": {
-                                            "total_booths": index_item["trend_wise_booth_count"],
-                                            "status": translation_data[get_status(trend=index_item["trend"])]
-                                        },
-                                        "data": [
-                                            *new_page_data.get(index_item["lb_name"], {}).get("data", {}).get(index_item[compare_type], {}).get("data", {}).get(index_item["trend"], {}).get("data", []),
-                                            index_item,
-                                        ]
+                                    index_item["status"]: {
+                                        "data": {
+                                            **new_page_data.get(index_item["lb_name"], {}).get("data", {}).get(index_item[compare_type], {}).get("data", {}).get(index_item["status"], {}).get("data", {}),
+                                            index_item["trend"]: {
+                                                "meta": {
+                                                    "total_booths": index_item["trend_wise_booth_count"],
+                                                    "status": translation_data[get_status(trend=index_item["trend"])]
+                                                },
+                                                "data": [
+                                                    *new_page_data.get(index_item["lb_name"], {}).get("data", {}).get(index_item[compare_type], {}).get("data", {}).get(index_item["status"], {}).get("data", {}).get(index_item["trend"], {}).get("data", []),
+                                                    index_item,
+                                                ]
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -166,6 +173,7 @@ def apply_index_page_numbers(graph_data_pages_list: List, compare_type):
     }
 
     def process_chapter_item(chapter_item, compare_type, INDEX_LB_KEY):
+        # check if index data is present or empty, if empty, page nums cant be calculated hence return the original chapter back 
         if len(chapter_item[1]) == 0:
             return chapter_item
         else:
@@ -173,95 +181,223 @@ def apply_index_page_numbers(graph_data_pages_list: List, compare_type):
             current_index_item_value = None
             current_subtrend = None
 
-            for table_page_obj in chapter_item[1]:
-                for index_item in table_page_obj["page_data"]["page_data"]:
-                    initial_page_num = 0
-                    last_page_num = 0
+            # set page num for lb wise index data
+            for lb_obj in chapter_item[2]:
+                for table_page_obj in lb_obj["lb_index_data"]:
+                    for lb_name in table_page_obj["page_data"]["grouped_page_data"]:
+                        lb_data = table_page_obj["page_data"]["grouped_page_data"][lb_name]["data"]
+                        for ward in lb_data:
+                            ward_data = lb_data[ward]["data"]
 
-                    if not current_trend or not current_index_item_value or not current_subtrend:
-                        current_trend = index_item["trend"]
-                        current_index_item_value = index_item[INDEX_LB_KEY[compare_type]]
-                        current_subtrend = index_item["sub_trend"]
+                            for status in ward_data:
+                                status_data = ward_data[status]["data"]
 
-                    for lb_wise_object in chapter_item[2]:
-                        for graph_page_obj in lb_wise_object["lb_wise_graph_data"]:
-                            hierarchy_pair_list = graph_page_obj["page_data"]
-                            hierarchy_item = (
-                                hierarchy_pair_list[1]
-                                if len(hierarchy_pair_list) > 1
-                                else hierarchy_pair_list[0]
-                            )
+                                for trend in status_data:
+                                    for index_item in status_data[trend]["data"]:
+                                        last_page_found = False
+                                        initial_page_num = 0
+                                        last_page_num = 0
 
-                            if compare_type == COMPARE_TYPE.BOOTH:
-                                belongs_to_index_item = (
-                                    hierarchy_item["parent_item_label"]
-                                    == current_index_item_value
-                                )
-                            elif compare_type == COMPARE_TYPE.LOCAL_BODY:
-                                belongs_to_index_item = (
-                                    hierarchy_item["hierarchy_item_value"]
-                                    in current_index_item_value
-                                )
-                            elif compare_type == COMPARE_TYPE.AC:
-                                belongs_to_index_item = (
-                                    hierarchy_item["hierarchy_item_value"]
-                                    == current_index_item_value
-                                )
-                            elif compare_type in [COMPARE_TYPE.WARD, COMPARE_TYPE.LOCALITY]:
-                                belongs_to_index_item = (
-                                    (hierarchy_item["parent_hierarchy_name"] == index_item["lb_name"]) and
-                                    (hierarchy_item["parent_locality"] == current_index_item_value)
-                                )
-                            else:
-                                belongs_to_index_item = (
-                                    hierarchy_item["hierarchy_item_value"]
-                                    in current_index_item_value
-                                )
+                                    if not current_trend or not current_index_item_value or not current_subtrend:
+                                        current_trend = index_item["trend"]
+                                        current_index_item_value = index_item[INDEX_LB_KEY[compare_type]]
+                                        current_subtrend = index_item["sub_trend"]
 
-                            if not belongs_to_index_item:
-                                if not initial_page_num:
-                                    continue
-                                else:
-                                    last_page_num = int(graph_page_obj["page_number"]) - 1
-                                    break
-                            else:
-                                if hierarchy_item["trend"] != current_trend:
-                                    if not initial_page_num:
-                                        continue
+                                    for lb_wise_object in chapter_item[2]:
+                                            if not last_page_found:
+                                                
+                                                total_items = len(lb_wise_object["lb_wise_graph_data"])
+                                                
+                                                for idx, graph_page_obj in enumerate(lb_wise_object["lb_wise_graph_data"]):
+                                                    if not last_page_found:
+                                                        
+                                                        # if it is the last lb item, then take the last page's page number
+                                                        if initial_page_num and idx + 1 == total_items:
+                                                            last_page_found = True
+                                                            last_page_num = int(graph_page_obj["page_number"])
+                                                        else:
+                                                            hierarchy_pair_list = graph_page_obj["page_data"]
+                                                            hierarchy_item = (
+                                                                hierarchy_pair_list[1]
+                                                                if len(hierarchy_pair_list) > 1
+                                                                else hierarchy_pair_list[0]
+                                                            )
+
+                                                            if compare_type == COMPARE_TYPE.BOOTH:
+                                                                belongs_to_index_item = (
+                                                                    hierarchy_item["parent_item_label"]
+                                                                    == current_index_item_value
+                                                                )
+                                                            elif compare_type == COMPARE_TYPE.LOCAL_BODY:
+                                                                belongs_to_index_item = (
+                                                                    hierarchy_item["hierarchy_item_value"]
+                                                                    in current_index_item_value
+                                                                )
+                                                            elif compare_type == COMPARE_TYPE.AC:
+                                                                belongs_to_index_item = (
+                                                                    hierarchy_item["hierarchy_item_value"]
+                                                                    == current_index_item_value
+                                                                )
+                                                            elif compare_type in [COMPARE_TYPE.WARD, COMPARE_TYPE.LOCALITY]:
+                                                                belongs_to_index_item = (
+                                                                    (hierarchy_item["parent_hierarchy_name"] == index_item["lb_name"]) and
+                                                                    (hierarchy_item["parent_locality"] == current_index_item_value)
+                                                                )
+                                                            else:
+                                                                belongs_to_index_item = (
+                                                                    hierarchy_item["hierarchy_item_value"]
+                                                                    in current_index_item_value
+                                                                )
+
+                                                            if not belongs_to_index_item:
+                                                                if not initial_page_num:
+                                                                    continue
+                                                                else:
+                                                                    last_page_num = int(graph_page_obj["page_number"]) - 1
+                                                                    last_page_found = True
+                                                            else:
+                                                                if hierarchy_item["trend"] != current_trend:
+                                                                    if not initial_page_num:
+                                                                        continue
+                                                                    else:
+                                                                        last_page_num = int(graph_page_obj["page_number"]) - 1
+                                                                        last_page_found = True
+                                                                else:
+                                                                    if hierarchy_item["sub_trend"] != current_subtrend:
+                                                                        if not initial_page_num:
+                                                                            continue
+                                                                        else:
+                                                                            last_page_num = int(graph_page_obj["page_number"]) - 1
+                                                                            last_page_found = True
+                                                                    else:
+                                                                        if not initial_page_num:
+                                                                            initial_page_num = int(graph_page_obj["page_number"])
+                                                                        else:
+                                                                            last_page_num = int(graph_page_obj["page_number"])
+                                                                        continue
+                                                        
+
+
+                                    page_no_list = ""
+                                    is_same_page = True if last_page_num - initial_page_num == 0 else False
+
+                                    if is_same_page:
+                                        page_no_list = f"{last_page_num}"
                                     else:
-                                        last_page_num = int(graph_page_obj["page_number"]) - 1
-                                        break
-                                else:
-                                    if hierarchy_item["sub_trend"] != current_subtrend:
-                                        if not initial_page_num:
-                                            continue
+                                        if last_page_num == 0:
+                                            page_no_list = f"{initial_page_num}"
                                         else:
-                                            last_page_num = int(graph_page_obj["page_number"]) - 1
-                                            break
+                                            page_no_list = f"{initial_page_num} - {last_page_num}"
+
+                                    index_item["page_no_list"] = page_no_list
+                                    current_trend = None
+                                    current_index_item_value = None
+                                    current_subtrend = None
+                                    last_page_found = False
+            
+            # set page num for main index data
+            for lb_obj in chapter_item[1]:
+                for lb_name in lb_obj["page_data"]["grouped_page_data"]:
+                    lb_data = lb_obj["page_data"]["grouped_page_data"][lb_name]["data"]
+                    for ward in lb_data:
+                        ward_data = lb_data[ward]["data"]
+
+                        for status in ward_data:
+                            status_data = ward_data[status]["data"]
+                            
+                            for trend in status_data:
+                                for index_item in status_data[trend]["data"]:
+                                    last_page_found = False
+                                    initial_page_num = 0
+                                    last_page_num = 0
+
+                                    if not current_trend or not current_index_item_value or not current_subtrend:
+                                        current_trend = index_item["trend"]
+                                        current_index_item_value = index_item[INDEX_LB_KEY[compare_type]]
+                                        current_subtrend = index_item["sub_trend"]
+
+                                    for lb_wise_object in chapter_item[2]:
+                                            if not last_page_found:
+                                                for graph_page_obj in lb_wise_object["lb_wise_graph_data"]:
+                                                    if not last_page_found:
+                                                        hierarchy_pair_list = graph_page_obj["page_data"]
+                                                        hierarchy_item = (
+                                                            hierarchy_pair_list[1]
+                                                            if len(hierarchy_pair_list) > 1
+                                                            else hierarchy_pair_list[0]
+                                                        )
+
+                                                        if compare_type == COMPARE_TYPE.BOOTH:
+                                                            belongs_to_index_item = (
+                                                                hierarchy_item["parent_item_label"]
+                                                                == current_index_item_value
+                                                            )
+                                                        elif compare_type == COMPARE_TYPE.LOCAL_BODY:
+                                                            belongs_to_index_item = (
+                                                                hierarchy_item["hierarchy_item_value"]
+                                                                in current_index_item_value
+                                                            )
+                                                        elif compare_type == COMPARE_TYPE.AC:
+                                                            belongs_to_index_item = (
+                                                                hierarchy_item["hierarchy_item_value"]
+                                                                == current_index_item_value
+                                                            )
+                                                        elif compare_type in [COMPARE_TYPE.WARD, COMPARE_TYPE.LOCALITY]:
+                                                            belongs_to_index_item = (
+                                                                (hierarchy_item["parent_hierarchy_name"] == index_item["lb_name"]) and
+                                                                (hierarchy_item["parent_locality"] == current_index_item_value)
+                                                            )
+                                                        else:
+                                                            belongs_to_index_item = (
+                                                                hierarchy_item["hierarchy_item_value"]
+                                                                in current_index_item_value
+                                                            )
+
+                                                        if not belongs_to_index_item:
+                                                            if not initial_page_num:
+                                                                continue
+                                                            else:
+                                                                last_page_num = int(graph_page_obj["page_number"]) - 1
+                                                                last_page_found = True
+                                                        else:
+                                                            if hierarchy_item["trend"] != current_trend:
+                                                                if not initial_page_num:
+                                                                    continue
+                                                                else:
+                                                                    last_page_num = int(graph_page_obj["page_number"]) - 1
+                                                                    last_page_found = True
+                                                            else:
+                                                                if hierarchy_item["sub_trend"] != current_subtrend:
+                                                                    if not initial_page_num:
+                                                                        continue
+                                                                    else:
+                                                                        last_page_num = int(graph_page_obj["page_number"]) - 1
+                                                                        last_page_found = True
+                                                                else:
+                                                                    if not initial_page_num:
+                                                                        initial_page_num = int(graph_page_obj["page_number"])
+                                                                    else:
+                                                                        last_page_num = int(graph_page_obj["page_number"])
+                                                                    continue
+
+                                    page_no_list = ""
+                                    is_same_page = True if last_page_num - initial_page_num == 0 else False
+
+                                    if is_same_page:
+                                        page_no_list = f"{last_page_num}"
                                     else:
-                                        if not initial_page_num:
-                                            initial_page_num = int(graph_page_obj["page_number"])
+                                        if last_page_num == 0:
+                                            page_no_list = f"{initial_page_num}"
                                         else:
-                                            last_page_num = int(graph_page_obj["page_number"])
-                                        continue
+                                            page_no_list = f"{initial_page_num} - {last_page_num}"
 
-                        page_no_list = ""
-                        is_same_page = True if last_page_num - initial_page_num == 0 else False
+                                    index_item["page_no_list"] = page_no_list
+                                    current_trend = None
+                                    current_index_item_value = None
+                                    current_subtrend = None
+                                    last_page_found = False
 
-                        if is_same_page:
-                            page_no_list = f"{last_page_num}"
-                        else:
-                            if last_page_num == 0:
-                                page_no_list = f"{initial_page_num}"
-                            else:
-                                page_no_list = f"{initial_page_num} - {last_page_num}"
-
-                        index_item["page_no_list"] = page_no_list
-                        current_trend = None
-                        current_index_item_value = None
-                        current_subtrend = None
-
-        return chapter_item
+            return chapter_item
     
     ### perform the multithreading using the above function for the graph_data_pages_list 
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -331,7 +467,12 @@ def add_index_row_style(source_row_data: List, should_add_booths_per_lb: bool, c
         ## lb wise total booth count
         for lb_name in lb_list:
             matching_records_df = df[(df["lb_name"] == lb_name)]
-            total = matching_records_df["booth_count"].sum()
+            booths_list = matching_records_df["booth_list_expanded"].to_list()
+            unique_booths_list = []
+            for arr in booths_list:
+                unique_booths_list.extend(arr)
+
+            total = len(set(unique_booths_list))
             index_list = matching_records_df.index.tolist()
 
             for idx in index_list:
@@ -592,3 +733,7 @@ def get_status(trend) -> str:
             status = STATUS.LOSS
 
     return status
+
+
+def add_status_to_index_rows(index_data: List) -> List:
+    return map(lambda item: ({ **item, "status": get_status(item["trend"]) }), index_data)

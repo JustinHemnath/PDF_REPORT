@@ -1,26 +1,48 @@
 dmk_red_color = "#d6382d"
 
 
-PARTY_WISE_COLORS = {
+# PARTY_WISE_COLORS = {
+#     "DMK": "#e82b1e",
+#     "VCK": "#0961b3",
+#     "BJP": "#e87007",
+#     "AIADMK": "#215e1b",
+#     "PMK": "#d9ce09",
+#     "NTK": "#141210",
+#     "Others": "#b3b4b5",
+#     "IND" : "#4c516d",
+#     "MDMK" :"#950606",
+#     "MNM" : "#d6204e",
+#     "IND" : "#4c516d",
+#     "PT"  :  "#66bd63",
+#     "CPI" : "#f04545",
+#     "CPIM" : "#ad4040",
+#     "INC" : "#5fb2d9",
+#     "IUML" : "#19d776",
+#     "DMDK":"#FDDA0D",
+#     "AMMK": "#234735"
+# }
+
+PARTY_WISE_COLORS = { 
     "DMK": "#e82b1e",
-    "VCK": "#0961b3",
+    "VCK": "#0961b3", 
     "BJP": "#e87007",
     "AIADMK": "#215e1b",
     "PMK": "#d9ce09",
     "NTK": "#141210",
     "Others": "#b3b4b5",
     "IND" : "#4c516d",
-    "MDMK" :"#950606",
-    "MNM" : "#d6204e",
+    "MDMK" : "#1e90ff",  # Replaced with blue
+    "MNM" : "#8a2be2",   # Replaced with purple
     "IND" : "#4c516d",
     "PT"  :  "#66bd63",
-    "CPI" : "#f04545",
-    "CPIM" : "#ad4040",
+    "CPI" : "#00fa9a",   # Replaced with light green
+    "CPIM" : "#483d8b",  # Replaced with dark blue
     "INC" : "#5fb2d9",
     "IUML" : "#19d776",
-    "DMDK":"#FDDA0D",
+    "DMDK": "#FDDA0D",
     "AMMK": "#234735"
 }
+
 
 COLORS = [
     "ca_graph_component_pink_bg",

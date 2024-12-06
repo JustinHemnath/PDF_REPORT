@@ -21,7 +21,6 @@ from itertools import groupby
 import logging
 import concurrent.futures
 
-
 def group_graph_data(
     payload: Dict,
     graph_main_data,
@@ -35,7 +34,8 @@ def group_graph_data(
     flag: int,
     differentiation_type: str,
     year_for_or_filter: Union[str, None],
-    ac_number_to_name
+    ac_number_to_name,
+    summary_data: List
 ):
     TREND = extra_metadata["TRENDS"]
     YEARS_LIST = extra_metadata["YEARS_LIST"]
@@ -114,7 +114,7 @@ def group_graph_data(
     
 
     parent_data_length = len(flattened_graph_main_data)
-    MAIN_GRAPH_DATA = [get_new_lb_graph_data_item(lb_name=flattened_graph_main_data[0]["parent_hierarchy_name"])] if len(flattened_graph_main_data) != 0 else []
+    MAIN_GRAPH_DATA = [get_new_lb_graph_data_item(lb_name=flattened_graph_main_data[0]["parent_hierarchy_name"], summary_data=summary_data)] if len(flattened_graph_main_data) != 0 else []
     lb_wise_graph_data = []
     hierarchy_pair_list = []
 
@@ -137,7 +137,7 @@ def group_graph_data(
 
         if hierarchy_list_is_empty:
             if MAIN_GRAPH_DATA[-1]["lb_name"] != current_hierarchy_item["parent_hierarchy_name"]:
-                MAIN_GRAPH_DATA.append(get_new_lb_graph_data_item(lb_name=current_hierarchy_item["parent_hierarchy_name"]))
+                MAIN_GRAPH_DATA.append(get_new_lb_graph_data_item(lb_name=current_hierarchy_item["parent_hierarchy_name"], summary_data=summary_data))
                 hierarchy_pair_list.append(current_hierarchy_item)
 
             else:
@@ -151,7 +151,7 @@ def group_graph_data(
                 ## check for local body equality if compare type is local body
                 if hierarchy_pair_list[0]["parent_hierarchy_name"] != current_hierarchy_item["parent_hierarchy_name"]:
                     MAIN_GRAPH_DATA[-1]["lb_wise_graph_data"].append(get_page_obj("", hierarchy_pair_list))
-                    MAIN_GRAPH_DATA.append(get_new_lb_graph_data_item(lb_name=current_hierarchy_item["parent_hierarchy_name"]))
+                    MAIN_GRAPH_DATA.append(get_new_lb_graph_data_item(lb_name=current_hierarchy_item["parent_hierarchy_name"], summary_data=summary_data))
                     hierarchy_pair_list = []
                     hierarchy_pair_list.append(current_hierarchy_item)
 
@@ -439,14 +439,13 @@ def convert_graph_data_into_fig(graph_data, translation_data: Dict):
     if x_axis == None:
         marker_color = [dmk_red_color]
     else:
-        marker_color = [PARTY_WISE_COLORS.get(party, dmk_red_color) if len(party.split(" ")) == 1 else PARTY_WISE_COLORS.get("IND") for party in x_axis]
+        marker_color = [PARTY_WISE_COLORS.get(party, "#8a2be2") if len(party.split(" ")) == 1 else PARTY_WISE_COLORS.get("IND") for party in x_axis]
 
     figure.update_traces(marker_color=marker_color, textposition="auto")
 
-    return None
-    # return figure.to_html(
-    #     full_html=False, config={"displayModeBar": False}, include_plotlyjs=False
-    # )
+    return figure.to_html(
+        full_html=False, config={"displayModeBar": False}, include_plotlyjs=False
+    )
 
 
 def get_page_obj(pg_no, page_data) -> Dict:
@@ -641,14 +640,14 @@ def get_graph_item_headers(
         bottom_headers = [bh_1, bh_2]
         label_value_title = [translation_data["local_body"], translation_data["label_value_title"]]
     elif compare_type == COMPARE_TYPE.AC:
-        th_1 = "{}. {} {} - ".format(AC_NO, AC_NAME, translation_data["ac"])
+        th_1 = "{} - ".format(translation_data["ac"])
         # th_2 = "({})".format(trend_count) if trend else ""
         # th_3 = "- ({})".format(header_data["ac_count"]) if trend else ""
         bh_2 = "{}: {}".format(translation_data["total_acs"], header_data["ac_count"])
         bottom_headers = [bh_1, bh_2]
         label_value_title = [translation_data["ac"], translation_data["label_value_title"]]
     elif compare_type == COMPARE_TYPE.LOCALITY:
-        th_1 = "{}. {} - {} {} - {} {}".format(AC_NO, AC_NAME, header_data["local_body"], translation_data["local_body"], header_data["locality"], translation_data["locality"])
+        th_1 = "{} {} - {} {}".format(header_data["local_body"], translation_data["local_body"], header_data["locality"], translation_data["locality"])
         # th_1 = "{}. {} - {} {} - ".format(AC_NO, AC_NAME, header_data["locality"], translation_data["locality"])
         # th_2 = "({})".format(trend_count) if trend else ""
         # th_3 = "- ({})".format(header_data["locality_count"]) if trend else ""
@@ -659,9 +658,17 @@ def get_graph_item_headers(
         label_value_title = [translation_data["booth_no_short"], translation_data["label_value_title"]]
     else:
         if header_data["ward_vp_type"] == WARD_VP_TYPE.WARD:
-            th_1 = "{}. {} - {} {} - {} {}".format(AC_NO, AC_NAME, header_data["local_body"], translation_data["local_body"], translation_data["ward"], header_data["ward_vp"])
+            # th_1 = "{} - {} || {} - {}".format(translation_data["local_body"], header_data["local_body"], translation_data["ward_no"], header_data["ward_vp"])
+            th_1 = [
+                    (translation_data["local_body"], header_data["local_body"]), 
+                    (translation_data["ward_no"], header_data["ward_vp"])
+                ]
         else:
-            th_1 = "{}. {} - {} {} - {} {}".format(AC_NO, AC_NAME, header_data["local_body"], translation_data["local_body"], header_data["ward_vp"], translation_data["village_panchayat"])
+            # th_1 = "{} - {} || {} - {}".format(translation_data["local_body"], header_data["local_body"], translation_data["village_panchayat"], header_data["ward_vp"])
+            th_1 = [
+                    (translation_data["local_body"], header_data["local_body"]), 
+                    (translation_data["village_panchayat"], header_data["ward_vp"])
+                ]
 
         # th_1 = "{}. {} - {} {} - ".format(AC_NO, AC_NAME, header_data["ward_vp"], translation_data["ward_vp"])
         # th_2 = "({})".format(trend_count) if trend else ""
@@ -871,10 +878,18 @@ def is_satisfies_flag(
     return satisfies
 
 
-def get_new_lb_graph_data_item(lb_name) -> Dict:
+def get_new_lb_graph_data_item(lb_name, summary_data: List) -> Dict:
+    # get the lb type from summary data 
+    lb_type = str()
+    for summary_item in summary_data:
+        if lb_name == summary_item["lb_name"]:
+            lb_type = summary_item["lb_type"]
+            break
+
     return {
         "lb_index_data": None, 
         "lb_name": lb_name, 
         "lb_wise_graph_data": [], 
         "lb_separation_page": get_page_obj("", None),
+        "lb_type": lb_type
         }

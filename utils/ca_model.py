@@ -47,7 +47,6 @@ with open("utils/extra_pages_translation.json", "r", encoding="utf-8") as f:
     extra_pages_translation_data = json.load(f)
 
 
-
 @time_it
 def model_data(flags_list, response_data={}, payload={}, translation_data={}, total_lb_list=[]):
     logging.info("Modelling response from server into PDF data")
@@ -62,8 +61,8 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
     
     SUMMARY_ITEMS_PER_PAGE = 5 if compare_type in [COMPARE_TYPE.WARD] else 12
     INDEX_ITEMS_PER_PAGE = 13
-    APPENDIX_ITEMS_PER_PAGE = 13
-    CANDIDATES_ITEMS_PER_PAGE = 18 if len(YEARS_LIST) == 2 else 13
+    APPENDIX_ITEMS_PER_PAGE = 10
+    CANDIDATES_ITEMS_PER_PAGE = 18 if len(YEARS_LIST) == 2 else 15 
 
     BOOTH_COUNT_KEY = "booth_count"
 
@@ -164,7 +163,8 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
             flag=flag_item["flag"],
             differentiation_type=flag_item["diff"],
             year_for_or_filter=flag_item["year"],
-            ac_number_to_name=ac_number_to_name
+            ac_number_to_name=ac_number_to_name,
+            summary_data=response_data["summary_data"]
         )
 
         # Process the index_data_pages for each flag item
@@ -194,6 +194,7 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
             flag_item["flag"],
             flag_item["diff"],
             flag_item["year"],
+            filtered_index_data_pages
         ]
 
     # Multithread 
@@ -278,7 +279,8 @@ def model_data(flags_list, response_data={}, payload={}, translation_data={}, to
         "total_pages": total_pages,
         "METADATA": METADATA,
         "DEFICIT_BOOTHS_INFO": get_missing_booth_info(booths_in_db=total_booths, ac_total_booths=response_data["header_data"][0]["total_booth"], total_lb_list=total_lb_list, payload=payload),
-        "CONSOLIDATED_GENDER_STATS": response_data["consolidated_gender_stats"]
+        "CONSOLIDATED_GENDER_STATS": response_data["consolidated_gender_stats"],
+        "LB_WISE_DEFICIT_BOOTHS_INFO": get_lb_wise_missing_booth_info(graph_data_pages_list[0][6], response_data["summary_data"]),
     }
 
 
@@ -300,7 +302,7 @@ def get_metadata(
         COMPARE_TYPE.LOCAL_BODY: translation_data["lb_common_header"],
         COMPARE_TYPE.AC: translation_data["ac_common_header"],
         COMPARE_TYPE.LOCALITY: translation_data["locality_common_header"],
-        COMPARE_TYPE.WARD: translation_data["ward_vp_common_header"],
+        COMPARE_TYPE.WARD: translation_data["ac_common_header"],
     }
 
     header = "{}. {} - {} - {}".format(
@@ -466,3 +468,38 @@ def add_lb_index_data_to_graph_data(index_data_pages, graph_data_pages, compare_
         graph_item["lb_index_data"] = lb_index_data_pages
 
     return graph_data_pages
+
+# an extra stat which is displayed on the lb separation page(lb_separation_page.html)
+# if the lb's actual booth count according to form 20 differs from the booths for the 
+# lb we have in our db, then an extra text is displayed stating disclaimer about the missing booths
+# for the local body
+def get_lb_wise_missing_booth_info(index_data, summary_data) -> List:
+    missing_booth_info = dict()
+    lb_wise_group_map = groupby(index_data, lambda x: x["lb_name"])
+    df_summary = pd.DataFrame(summary_data)
+
+    for key, value in lb_wise_group_map:
+        lb_wise_index_items = list(value)
+        booths = []
+
+        for index_item in lb_wise_index_items:
+            booths.extend(index_item["booth_list_expanded"]) 
+
+        duplicates_removed_booths = set(booths)
+        current_booth_count = len(duplicates_removed_booths)
+
+        actual_booth_count = int(df_summary[df_summary["lb_name"] == key]["booth_count"])
+
+        # display the lb wise missing booths stats only if the actual booth count 
+        # differs from the current list of booths given in the graph response
+        should_display_stats = not current_booth_count == actual_booth_count
+            
+        lb_info = {
+            "should_display_stats": should_display_stats,
+            "db_booth_count": current_booth_count,
+            "total_booth_count": actual_booth_count,
+            "deficit_booths": actual_booth_count - current_booth_count,
+        }
+        missing_booth_info[key] = lb_info
+
+    return missing_booth_info
