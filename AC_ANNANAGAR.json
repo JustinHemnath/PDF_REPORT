@@ -1,0 +1,150 @@
+{
+    "summary_data": [
+        {
+            "s_no": 1,
+            "booth_list": [
+                "140-253"
+            ],
+            "lb_name": "அண்ணாநகர் தெற்கு பகுதி",
+            "lb_type": "பகுதி",
+            "ward_vp": [
+                "106",
+                "108",
+                "105"
+            ],
+            "booth_count": 114,
+            "page_no": 1
+        },
+        {
+            "s_no": 2,
+            "booth_list": [
+                "1-139"
+            ],
+            "lb_name": "அண்ணாநகர் வடக்கு பகுதி",
+            "lb_type": "பகுதி",
+            "ward_vp": [
+                "101",
+                "68",
+                "100",
+                "102",
+                "103"
+            ],
+            "booth_count": 139,
+            "page_no": 1
+        }
+    ],
+    "candidates_data": [],
+    "index_data": [
+        {
+            "ac_no": 21,
+            "ac_name": "அண்ணா நகர்",
+            "ac_count": 1,
+            "page_no_list": 3,
+            "page_no": 2,
+            "s_no": 1,
+            "trend": "WW",
+            "sub_trend": "SS"
+        }
+    ],
+    "header_data": [
+        {
+            "ac_no": 21,
+            "ac_count": 1,
+            "total_booth": 253,
+            "ac_total_votes": 147977,
+            "ac_name": "அண்ணா நகர்",
+            "trend": "WW",
+            "sub_trend": "SS"
+        }
+    ],
+    "graph_data": {
+        "gender_stats": {
+            "male": 133212,
+            "female": 138706,
+            "others": 96,
+            "total": 272014,
+            "male_percentage": 48.97,
+            "female_percentage": 50.99,
+            "others_percentage": 0.04
+        },
+        "age_stats": {
+            "age_18_30": 46734,
+            "age_31_50": 121807,
+            "age_51_80": 100253,
+            "age_81+": 4660,
+            "total_count": 273454,
+            "age_18_30_percentage": 17.09,
+            "age_31_50_percentage": 44.54,
+            "age_51_80_percentage": 36.66,
+            "age_81+_percentage": 1.7
+        },
+        "trend": "WW",
+        "sub_trend": "SS",
+        "2024": {
+            "ac_no": 21,
+            "ac_name": "அண்ணா நகர்",
+            "local_body": [
+                "அண்ணாநகர் தெற்கு பகுதி",
+                "அண்ணாநகர் வடக்கு பகுதி"
+            ],
+            "lb_count": 2,
+            "turnout": 54.4,
+            "margin": 42762,
+            "margin_percentage": 55.87,
+            "total_voters": 272014,
+            "vote_share": 51,
+            "polled_votes": 147977,
+            "trend": "W",
+            "graph_data": {
+                "x": [
+                    "DMK",
+                    "BJP",
+                    "DMDK",
+                    "NTK",
+                    "Others"
+                ],
+                "y": [
+                    76543,
+                    33781,
+                    19660,
+                    11214,
+                    6779
+                ]
+            }
+        },
+        "2021": {
+            "ac_no": 21,
+            "ac_name": "அண்ணா நகர்",
+            "local_body": [
+                "அண்ணாநகர் தெற்கு பகுதி",
+                "அண்ணாநகர் வடக்கு பகுதி"
+            ],
+            "lb_count": 2,
+            "turnout": 61.12,
+            "margin": 27445,
+            "margin_percentage": 34.28,
+            "total_voters": 273192,
+            "vote_share": 47,
+            "polled_votes": 166976,
+            "trend": "W",
+            "graph_data": {
+                "x": [
+                    "DMK",
+                    "AIADMK",
+                    "MNM",
+                    "NTK",
+                    "Others"
+                ],
+                "y": [
+                    80054,
+                    52609,
+                    17522,
+                    10406,
+                    6385
+                ]
+            }
+        },
+        "page_no": 3
+    },
+    "consolidated_gender_stats": null
+}
