@@ -786,6 +786,9 @@ def get_trends_from_subtrends_header(header_list, compare_type: str) -> Dict:
         return final_dict
     
     else:
+        GROUPBY_KEY = {
+            COMPARE_TYPE.AC: "ac_name",
+        }
         initial_groupby_key = "local_body"
 
         grp_local_body = groupby(header_list, lambda x: x[initial_groupby_key])
